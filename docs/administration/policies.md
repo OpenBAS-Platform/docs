@@ -15,16 +15,18 @@ Administrators can create and manage messages that are displayed to users upon l
   * **Platform Consent Confirm Text**: A message accompanying the consent box, providing clarity on the consent confirmation process.
 
 These messages can be customized to fit the organization's specific needs and requirements, ensuring that critical information is communicated effectively to users.
-<p align="center">
-<img src="assets/img.png" width="350">
-</p>
-<p align="center">
-<img src="assets/img_1.png" width="350">
-</p>
+
+<figure markdown="span">
+  ![Policies login](assets/policies_login.png)
+</figure>
+
+<figure markdown="span">
+  ![Policies admin](assets/policies_admin.png)
+</figure>
 
 ### Accessing the Policies Configuration Page
 
-To access the Policies configuration page, navigate to:
+**To access the Policies configuration page, navigate t**o:
 
     Settings / Security / Policies  
 
