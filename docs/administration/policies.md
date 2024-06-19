@@ -16,10 +16,10 @@ Administrators can create and manage messages that are displayed to users upon l
 
 These messages can be customized to fit the organization's specific needs and requirements, ensuring that critical information is communicated effectively to users.
 <p align="center">
-<img src="img.png" width="350">
+<img src="assets/img.png" width="350">
 </p>
 <p align="center">
-<img src="img_1.png" width="350">
+<img src="assets/img_1.png" width="350">
 </p>
 
 ### Accessing the Policies Configuration Page
