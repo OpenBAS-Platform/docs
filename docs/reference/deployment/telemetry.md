@@ -6,7 +6,7 @@ The application collects statistical data related to its usage and performances.
 
     The OpenBAS platform does not collect any information related to vulnerability which remains strictly confidential. Also, the collection is strictly anonymous and personally identifiable information is NOT collected (including IP addresses).
 
-All data collected is anonymized and aggregated to protect the privacy of individual users, in compliance with all privacy regulations.
+We do not collect any personal data, only statistical data. All collected data is aggregated to ensure privacy and compliance with relevant privacy regulations (see breakdown below for details).
 
 ## Purpose of the telemetry
 
