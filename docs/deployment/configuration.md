@@ -68,7 +68,7 @@ Here are the configuration keys, for both containers (environment variables) and
 |:------------------------------------|:------------------------------------|:--------------|:----------------------------------------------------------------------------------------------------|
 | openbas.xtm.opencti.enable          | OPENBAS_XTM_OPENCTI_ENABLE          | false         | Enable integration with OpenCTI                                                                     |
 | openbas.xtm.opencti.url             | OPENBAS_XTM_OPENCTI_URL             |               | OpenCTI URL                                                                                         |
-| openbas.xtm.opencti.api_url         | OPENBAS_XTM_OPENCTI_API_URL         |               | OpenCTI API URL, it will completly override the OpenCTI API URL, otherwise the default url will be `openbas.xtm.opencti.api` + '/graphql'|
+| openbas.xtm.opencti.api_url         | OPENBAS_XTM_OPENCTI_API_URL         |               | OpenCTI API URL, it will completly override the OpenCTI URL, otherwise the default url will be `openbas.xtm.opencti.api` + '/graphql'|
 | openbas.xtm.opencti.token           | OPENBAS_XTM_OPENCTI_TOKEN           |               | OpenCTI token                                                                                       |
 | openbas.xtm.opencti.disable-display | OPENBAS_XTM_OPENCTI_DISABLE-DISPLAY | `false`       | Disable OpenCTI in the UI                                                                           |
 
