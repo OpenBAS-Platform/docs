@@ -17,11 +17,16 @@ Depending on the OS, several installations are at your disposal, you can find th
 
 Linux
 
-  - Requirement → systemd, access to the openbas instance used
-  - Compatibility → All systemd based linux distros
-  - Installation → Create a service with name openbas-agent ("Install Linux Agent")
-  - Verification command line → `systemctl enable openbas-agent`
-  - Start/Stop service →`systemctl start openbas-agent` & `systemctl stop openbas-agent`
+- Requirement → systemd, access to the openbas instance used
+- Compatibility → All systemd based linux distros
+
+| Installation mode                         | Installation                                                                                                                                    | Installation type                                           | Execution agent and payload                                                           | Verification/Start/Stop agent                                                                                                                    | Folder (and Antivirus exclusion) path | Uninstallation                                                                                                                                                                                                    |
+|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Standard installation (session)           | Terminal with standard privilege                                                                                                                | User service: `systemctl --user`                            | Background, only when user is logged, with the user privilege and environment         | `systemctl --user enable openbas-agent-session` & `systemctl --user start openbas-agent-session` & `systemctl --user stop openbas-agent-session` | $HOME/.local/openbas-agent-session    | `systemctl --user stop openbas-agent-session & systemctl --user disable openbas-agent-session & systemctl --user daemon-reload & systemctl --user reset-failed & sudo rm -rf $HOME/.local/openbas-agent-session`  |
+| Advanced installation as User (service)   | Terminal with sudo privilege (replace params USER and GROUP in the bash snippet and in the following commands by the username and group wanted) | Service: `systemctl` (with user and group in service conf)  | Background, as soon as the machine powers on, with the user privilege and environment | `systemctl enable USER-openbas-agent` & `systemctl start USER-openbas-agent` & `systemctl stop USER-openbas-agent`                               | /opt/openbas-agent-service-USER       | `sudo systemctl stop USER-openbas-agent & sudo systemctl disable USER-openbas-agent & sudo systemctl daemon-reload & sudo systemctl reset-failed & sudo rm -rf /opt/openbas-agent-service-USER`                   |                             
+| Advanced installation as System (service) | Terminal with sudo privilege                                                                                                                    | Service: `systemctl`                                        | Background, as soon as the machine powers on, with the root privilege and environment | `systemctl enable openbas-agent` & `systemctl start openbas-agent` & `systemctl stop openbas-agent`                                              | /opt/openbas-agent                    | `sudo systemctl stop openbas-agent & sudo systemctl disable openbas-agent & sudo systemctl daemon-reload & sudo systemctl reset-failed & sudo rm -rf /opt/openbas-agent`                                          |
+
+- If you want to allow your agent to launch commands payloads for a user without filling the sudo password, follow [this tutorial](https://gcore.com/learning/how-to-disable-password-for-sudo-command/)
 
 MacOS
 
@@ -97,9 +102,9 @@ The main features of the OpenBAS Agent are:
 
 ## Troubleshooting
 
-If you experience issues with your agent, the logs are available here:
+If you experience issues with your agent, the logs are available here (see the "Installation" section above to get the folder path) :
 
-- Linux -> /opt/openbas-agent/openbas-agent.log
-- MacOS -> /opt/openbas-agent/openbas-agent.log
-- Windows -> "$PROGRAMFILES\Filigran\OBAS Agent\openbas-agent.log"
+- Linux -> [FOLDER_PATH]/openbas-agent.log
+- MacOS -> [FOLDER_PATH]/openbas-agent.log
+- Windows -> [FOLDER_PATH]\openbas-agent.log
 
