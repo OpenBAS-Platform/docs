@@ -9,12 +9,12 @@ be in charge of executing implants as detached processes. Implants will then exe
 
 The OpenBAS platform manage 4 executors which can be installed on Windows, Linux and MacOS. This table below summarizes the information about each agent.
 
-| Executor                       | Type                | Installation mode                                 | Installation type | Run As                                 | Payload execution                              | 
-|:-------------------------------|:--------------------|:--------------------------------------------------|:------------------|:---------------------------------------|:-----------------------------------------------|
-| OpenBAS Agent (native/default) | Open source         | As a user session, user service or system service | Script            | A standard or admin background process | As a user standard, user admin or system admin |
-| Tanium Agent                   | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              |
-| Crowdstrike Falcon Agent       | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              |
-| Caldera Agent                  | Open source         | As a user session                                 | Script            | An admin background process            | As a user admin                                |
+| Executor                       | Type                | Installation mode                                 | Installation type | Run As                                 | Payload execution                              | Multi agents for an endpoint                     |
+|:-------------------------------|:--------------------|:--------------------------------------------------|:------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------------|
+| OpenBAS Agent (native/default) | Open source         | As a user session, user service or system service | Script            | A standard or admin background process | As a user standard, user admin or system admin | Yes, depending on the user and installation mode |
+| Tanium Agent                   | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              | No, always the same agent                        |                              
+| Crowdstrike Falcon Agent       | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              | No, always the same agent                        |                              
+| Caldera Agent                  | Open source         | As a user session                                 | Script            | An admin background process            | As a user admin                                | Yes, depending on the user                       |                      
 
 For more details about the installation and working of each agent, see the sections dedicated below.
 
