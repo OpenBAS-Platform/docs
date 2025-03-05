@@ -7,6 +7,17 @@ be in charge of executing implants as detached processes. Implants will then exe
 
 ![Architecture](../assets/architecture.png)
 
+The OpenBAS platform manage 4 executors which can be installed on Windows, Linux and MacOS. This table below summarizes the information about each agent.
+
+| Executor                       | Type                | Installation mode                                 | Installation type | Run As                                 | Payload execution                              | 
+|:-------------------------------|:--------------------|:--------------------------------------------------|:------------------|:---------------------------------------|:-----------------------------------------------|
+| OpenBAS Agent (native/default) | Open source         | As a user session, user service or system service | Script            | A standard or admin background process | As a user standard, user admin or system admin |
+| Tanium Agent                   | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              |
+| Crowdstrike Falcon Agent       | Under license       | As a system service                               | Executable        | An admin background process            | As a system admin                              |
+| Caldera Agent                  | Open source         | As a user session                                 | Script            | An admin background process            | As a user admin                                |
+
+For more details about the installation and working of each agent, see the sections dedicated below.
+
 ## OpenBAS Agent
 
 The OpenBAS agent is available for Windows, Linux and MacOS, it is the native / default way to execute implants and payloads on endpoints.
