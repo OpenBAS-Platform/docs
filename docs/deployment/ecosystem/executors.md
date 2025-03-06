@@ -72,7 +72,7 @@ Also, the assets in the selected computer groups should now be available in the 
 
 ![Endpoints](../assets/tanium-endpoints.png)
 
-NB : An Asset can only have one Tanium agent installed thanks to an unicity with hostname and IP parameters.
+NB : An Asset can only have one Tanium agent installed thanks to an unicity with mac address parameters.
 If you try to install again a Tanium agent on a platform, it will overwrite the actual one and you will always
 see one endpoint on the OpenBAS endpoint page.
 
@@ -198,7 +198,7 @@ Also, the assets in the selected computer groups should now be available in the 
 
 ![Crowdstrike Endpoints](../assets/crowdstrike-endpoints.png)
 
-NB : An Asset can only have one CrowdStrike agent installed thanks to an unicity with hostname and IP parameters. If you try to install again a CrowdStrike agent on a platform, it will overwrite the actual one and you will always see one endpoint on the OpenBAS endpoint page.
+NB : An Asset can only have one CrowdStrike agent installed thanks to an unicity with mac address parameters. If you try to install again a CrowdStrike agent on a platform, it will overwrite the actual one and you will always see one endpoint on the OpenBAS endpoint page.
 
 !!! success "Installation done"
 
@@ -299,6 +299,9 @@ available in the OpenBAS endpoints list.
 
 ![Endpoints](../assets/caldera-endpoints.png)
 
-NB : An Asset can only have one Caldera agent installed thanks to an unicity with hostname and IP parameters.
-If you try to install again a Caldera agent on a platform, it will overwrite the actual one and you will always
-see one endpoint on the OpenBAS endpoint page.
+### Uninstallation
+
+Run those following commands to an administrator Powershell to uninstall your Caldera agent :
+`schtasks /delete /tn OpenBASCaldera`
+`Stop-Process -Name obas-agent-caldera`
+`rm -force -Recurse "C:\Program Files (x86)\Filigran\OBAS Caldera"`
