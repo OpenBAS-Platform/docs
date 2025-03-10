@@ -7,7 +7,7 @@ be in charge of executing implants as detached processes. Implants will then exe
 
 ![Architecture](../assets/architecture.png)
 
-The OpenBAS platform manage 4 executors which can be installed on Windows, Linux and MacOS. This table below summarizes the information about each agent.
+The OpenBAS platform manages 4 executors which can be installed on Windows, Linux and MacOS. This table below summarizes the information about each agent.
 
 | Executor                           | Type                | Installation mode                                 | Installation type | Run As                                 | Payload execution                              | Multi agents for an endpoint                     |
 |:-----------------------------------|:--------------------|:--------------------------------------------------|:------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------------|
@@ -72,7 +72,7 @@ Also, the assets in the selected computer groups should now be available in the 
 
 ![Endpoints](../assets/tanium-endpoints.png)
 
-NB : An Asset can only have one Tanium agent installed thanks to an unicity with mac address parameters.
+NB : An asset can only have one Tanium agent installed due to the uniqueness of the MAC address parameters
 If you try to install again a Tanium agent on a platform, it will overwrite the actual one and you will always
 see one endpoint on the OpenBAS endpoint page.
 
@@ -198,7 +198,7 @@ Also, the assets in the selected computer groups should now be available in the 
 
 ![Crowdstrike Endpoints](../assets/crowdstrike-endpoints.png)
 
-NB : An Asset can only have one CrowdStrike agent installed thanks to an unicity with mac address parameters. If you try to install again a CrowdStrike agent on a platform, it will overwrite the actual one and you will always see one endpoint on the OpenBAS endpoint page.
+NB : An asset can only have one CrowdStrike agent installed due to the uniqueness of the MAC address parameters. If you try to install again a CrowdStrike agent on a platform, it will overwrite the actual one and you will always see one endpoint on the OpenBAS endpoint page.
 
 !!! success "Installation done"
 
@@ -301,7 +301,7 @@ available in the OpenBAS endpoints list.
 
 #### Uninstallation
 
-Run those following commands with an administrator Powershell to uninstall your Caldera agent:<br/>
+Run the following commands with an administrator Powershell in order to uninstall your Caldera agent:<br/>
 `schtasks /delete /tn OpenBASCaldera`<br/>
 `Stop-Process -Name obas-agent-caldera`<br/>
 `rm -force -Recurse "C:\Program Files (x86)\Filigran\OBAS Caldera"`
