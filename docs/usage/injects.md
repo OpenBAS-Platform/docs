@@ -5,7 +5,7 @@ Injects are fundamental elements of simulations within OpenBAS, each representin
 ![Injects list in a Scenario](assets/injects_list_in_scenario.png)
 
 
-## Create a Inject
+## Create an Inject
 
 Whether intended for [Atomic testing](atomic.md) or for a [Simulation](simulation.md), the process for creating injects remains consistent within OpenBAS.
 
