@@ -276,9 +276,9 @@ Users can export injects from **simulations, scenarios, or atomic tests**. The e
 ![Export in atomic](assets/export-popover.png)
 ![Export in atomic](assets/export-inject-atomic.png)
 ![Export in simulation](assets/export-inject-simulation.png)
-![Export in simulation](assets/export-inject-simulation-menu.png)
+![Export in simulation menu](assets/export-inject-simulation-menu.png)
 ![Export in scenario](assets/export-inject-scenario.png)
-![Export in scenario](assets/export-inject-scenario-menu.png)
+![Export in scenario menu](assets/export-inject-scenario-menu.png)
 
 ### **Import Injects**
 Users can import injects into **simulations, scenarios, or atomic tests**, regardless of the instance from which they were originally exported.
