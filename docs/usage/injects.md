@@ -273,8 +273,8 @@ Users can export injects from **simulations, scenarios, or atomic tests**. The e
 - **Assets** are **never** exported.
 - **Permissions Required**: Read privileges are required on the **Scenario** or **Simulation** to perform an export.
 
-![Export in atomic](assets/export-inject-atomic.png)
 ![Export in atomic](assets/export-inject-atomic-popover.png)
+![Export in atomic](assets/export-inject-atomic.png)
 ![Export in simulation](assets/export-inject-simulation.png)
 ![Export in scenario](assets/export-inject-scenario.png)
 
