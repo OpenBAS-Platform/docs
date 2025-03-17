@@ -271,7 +271,7 @@ Users can export injects from **simulations, scenarios, or atomic tests**. The e
 - **Atomic testing restriction**: Only **one atomic test** can be exported at a time.
 - **Teams/Players** can be optionally included in the export.
 - **Assets** are **never** exported.
-- **Permissions Required**: Read privileges are required on the **Scenario** or **Simulation** to perform an export. Atomic testing need Admin privileges.
+- **Permissions Required**: Read privileges are required on the **Scenario** or **Simulation** to perform an export. Atomic testings require Admin privileges.
 
 ![Export in atomic](assets/export-popover.png)
 ![Export in atomic](assets/export-inject-atomic.png)
@@ -285,7 +285,7 @@ Users can import injects into **simulations, scenarios, or atomic tests**, regar
 
 ### **Import Rules**
 - Injects from any source (atomic testing, scenarios, or simulations) can be imported into any other instance (scenarios, simulations, or atomic testing).
-- **Permissions Required**: Write privileges are required on the **destination object** (Scenario or Simulation) to perform an import. Atomic testing need Admin privileges.
+- **Permissions Required**: Write privileges are required on the **destination object** (Scenario or Simulation) to perform an import. Atomic testings require Admin privileges.
 
 ![Import in atomic](assets/import-popover.png)
 ![Import in atomic](assets/import-inject-atomic.png)
