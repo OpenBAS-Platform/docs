@@ -82,8 +82,15 @@ see one Endpoint on the OpenBAS endpoint page.
 
 ## CrowdStrike Falcon Agent
 
-The CrowdStrike Falcon agent can be leveraged to execute implants as detached processes that will the execute payloads
+The CrowdStrike Falcon agent can be leveraged to execute implants as detached processes that will then execute payloads
 according to the [OpenBAS architecture](https://docs.openbas.io/latest/deployment/overview).
+
+The implants will be downloaded to these folders on the different assets:
+* On Windows assets: `C:\Windows\Temp\.openbas\implant-XXXXX`
+* On Linux or MacOS assets: `/tmp/.openbas/implant-XXXXX`
+
+where XXXXX will be a completely random UUID, generated for each inject that will be executed.
+This ensures that the implants are unique and will be deleted on assets' restart.
 
 ### Configure the CrowdStrike Platform
 
