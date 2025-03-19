@@ -137,11 +137,18 @@ Put the following Input schema:
 | script access         | Users with the role of RTR Administrator or RTR Active Responder |
 | shared with workflows | yes                                                              |
 
-Put the following script:
+Put the following script **(release version < 1.15.0)**:
 
 ```PowerShell
 $command = $args[0] | ConvertFrom-Json | Select -ExpandProperty 'command';
 cmd.exe /d /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -NoProfile -Command "Invoke-Expression ([System.Text.Encoding]::UTF8.GetString([convert]::FromBase64String('$command')))"
+```
+
+Put the following script **(release version >= 1.15.0)**:
+
+```PowerShell
+$command = $args[0] | ConvertFrom-Json | Select -ExpandProperty 'command';
+cmd.exe /d /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -NoProfile -encodedCommand $command"
 ```
 
 Put the following Input schema:
