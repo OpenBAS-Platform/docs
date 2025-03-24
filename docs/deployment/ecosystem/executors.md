@@ -184,6 +184,30 @@ Once created, your RTR scripts should have something like this:
 
 To create a host group, go to `Host setup and management` > `Host groups`.
 
+#### Create/Update response policies for your targeted assets
+
+As OpenBAS will ask CrowdStrike to create implants in order to execute payloads as scripts, you need to allow the 
+execution of custom scripts on your assets. To do so, you need to create a new response policy or update an existing one
+for your assets' platforms.
+
+To create or update a response policy, go to `Host setup and management` > `Response policies`.
+
+There, choose a platform in the top left selector, then click on `Create policy` or click on the name of an existing one.
+![CrowdStrike Response Policies](../assets/crowdstrike-windows-policies.png)
+
+The CrowdStrike UI should present you with a screen like this:
+![CrowdStrike Response Policies Details](../assets/crowdstrike-windows-policy.png)
+
+On this screen, click to allow `Custom Scripts` execution. 
+If an option named `Falcon Scripts` exists, allow it as well.
+For the other options, you can choose to allow or deny them according to your security policy and what you want to test.
+Click on `Save` to save your changes.
+
+Finally, click on the `Assigned host groups` tab to add your previously created group to this policy.
+Once done, the policy may take a few minutes to be applied to your assets.
+You can go back to the policies list screen and check that there is a 0 in the `Pending` column to know that it has been
+applied.
+
 ### Configure the OpenBAS platform
 
 !!! warning "CrowdStrike API Key"
