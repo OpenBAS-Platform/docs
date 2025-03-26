@@ -184,7 +184,7 @@ Once created, your RTR scripts should have something like this:
 
 To create a host group, go to `Host setup and management` > `Host groups`.
 
-#### Create/Update response policies for your targeted assets
+#### Create/Update response policies for your targeted platforms
 
 As OpenBAS will ask CrowdStrike to create implants in order to execute payloads as scripts, you need to allow the 
 execution of custom scripts on your assets. To do so, you need to create a new response policy or update an existing one
