@@ -155,7 +155,7 @@ Put the following script **(release version >= 1.15.0)**:
 
 ```PowerShell
 $command = $args[0] | ConvertFrom-Json | Select -ExpandProperty 'command';
-cmd.exe /d /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -NoProfile -encodedCommand $command"
+cmd.exe /d /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -NonInteractive -NoProfile -encodedCommand $command
 ```
 
 Put the following Input schema:
