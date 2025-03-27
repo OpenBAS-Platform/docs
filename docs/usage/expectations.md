@@ -95,4 +95,4 @@ When creating an expectation, users can set an expiration time. The system's def
 decide to override it.
 
 Once the expiration time will be reached, the Expectation Expiration Manager will fail the expectation and will show the
-result as `Not Detected`.
+result as `Not Detected` or `Not Prevented` depending on the expectation's type.

@@ -215,25 +215,27 @@ All execution logs are stored on the OBAS Server, which later processes them to 
 
 **Alert Details**
 
-Once an inject have been executed, it is possible to access the alerts' details on the different SIEMs linked to the 
-EDRs present on the tested assets.
+Once an inject have been executed, it is possible to access the alerts' details on the different security platforms 
+(SIEM or EDR) linked to the EDRs present on the tested assets.
 
 ![Inject execution traces details](assets/inject-expectation-traces-1.png)
 
 By selecting an agent on the `Targets` panel, you can access the traces details that were retrieved by OpenBAS.
 
-On the above example, we can see that there are 3 agents on the `mac.home` asset. Both the CrowdStrike and the Tanium 
-agents haven't had any detection nor any prevention results. However, there are some on the OpenBAS agent.
-By clicking on it, we can see that the inject's payload was detected by CrowdStrike, but not by Tanium. We can also see 
-that there were 2 alerts on CrowdStrike. 
+On the above example, we can see that there are 3 agents on the `mac.home` asset. We can see there are detections on the
+OpenBAS and CrowdStrike agents, while the Tanium agent hasn't had any yet (it can take several minutes for the traces to
+show up in OpenBAS).
 
-To get the details of these alerts, you can click on the CrowStrike line to see
-this:
+By clicking on the CrowdStrike agent, we can see that the inject's payload was detected by CrowdStrike and Defender, and
+traces are available on Sentinel as well. 
+We can also see that there were 2 alerts on CrowdStrike, and 1 on Defender and Sentinel. 
+
+To get the details of these alerts, you can click on the CrowStrike line to see this:
 
 ![Inject execution traces alert details](assets/inject-expectation-traces-2.png)
 
 On this new panel, you can click on the alert name, and you will be redirected to the alert details on the corresponding
-SIEM platform.
+security platform.
 
 !!! warning
 
