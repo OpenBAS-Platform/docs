@@ -26,6 +26,7 @@ To create a new payload, follow these steps:
    4.1 Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
    4.2 Specify whether to generate **[Findings](../findings.md)** from the output.
 
+
 ![Payload general view](assets/payload-general-view.png)
 ![Payload command view](assets/payload-command-view.png)
 ![Payload output parser view](assets/payload-output-parser-view.png)
