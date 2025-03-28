@@ -10,7 +10,8 @@ To create a new payload, follow these steps:
 
 1. Click the **"+" button** in the bottom right corner of the screen.
 2. In the **General Information** tab, fill in the required details about the payload.
-3. In the **Commands** tab:  
+3. In the **Commands** tab:
+
    3.1 Choose a **payload type** based on your needs:
     - **Command Line**: Executes a command using an executor (e.g., PowerShell, Bash, etc.).
     - **Executable**: Runs an executable file on an asset.
@@ -20,12 +21,10 @@ To create a new payload, follow these steps:
    3.2 Provide **additional execution details**, such as arguments and prerequisites.  
    3.3 Specify a **cleanup executor and cleanup command** to remove any remnants from execution on the asset.
 
-4. In the **Output Parsers** tab (optional):  
+4. In the **Output Parsers** tab (optional):
+
    4.1 Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
    4.2 Specify whether to generate **[Findings](../findings.md)** from the output.
-
-   !!! info "Payload Execution"  
-   Your payload can still be used even if no output parser is defined.
 
 ![Payload general view](assets/payload-general-view.png)
 ![Payload command view](assets/payload-command-view.png)
