@@ -5,6 +5,7 @@ This guide explains how to add translations when developing on OpenBAS. We have 
 
 #### 1. Using scripts
 You can find translations management scripts in the package.json file.
+
 - extract-translation : will fetch all the files and add new translations keys in en.json 
 - auto-translation:fr : will translate all the elements of the en.json in french and add them in the fr.json
 - auto-translation:cn : will translate all the elements of the en.json in chinese and add them in the zh.json
