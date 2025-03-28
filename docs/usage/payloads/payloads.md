@@ -122,8 +122,8 @@ Currently, Output Parsers support:
 * Output Mode: **StdOut**
 * Parsing Type: **REGEX**
 
-If the extracted data is compatible with a Finding, you can enable the "Show in Findings" option. Findings will then
-appear in the Findings tab of the Atomic Testing Detail View.
+If the extracted data is compatible with a [Finding](../findings.md), you can enable the checkbox "Show in Findings"
+option. They will then appear in the Findings tab of the Atomic Testing Detail View.
 
 #### Defining a Rule
 
@@ -131,14 +131,14 @@ When adding a rule, the following properties must be defined:
 
 | Property     | Description                                                                                                                               | Mandatory |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Name         | The name of the rule                                                                                                                      | Yes       |
-| Key          | A unique key identifier                                                                                                                   | Yes       |
+| Name         | The name of the rule.                                                                                                                     | Yes       |
+| Key          | A unique key identifier.                                                                                                                  | Yes       |
 | Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                             | Yes       |
 | Tags         |                                                                                                                                           | No        |
 | Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). | Yes       |
-| Output Value | Map each regex capture group to the corresponding fields based on the selected type                                                       | Yes       |
+| Output Value | Map each regex capture group to the corresponding fields based on the selected type.                                                      | Yes       |
 
-##### Output Value Mapping
+### Output Value Mapping
 
 Depending on the Type, a specific number of fields can be extracted using the group index from the regex :
 
