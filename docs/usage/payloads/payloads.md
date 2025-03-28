@@ -114,7 +114,7 @@ accessibility, detect issues, and simulate potential attacker behavior.
 ### Output Parsers
 
 Output Parsers allows processing the raw output from an execution. You can define rules to extract specific data from
-the output and link it to variables.
+the output and link it to variables. 
 These variables can then be used for [chaining injects](../injects.md/#conditional-execution-of-injects).
 
 Currently, Output Parsers support:
@@ -125,18 +125,33 @@ Currently, Output Parsers support:
 If the extracted data is compatible with a Finding, you can enable the "Show in Findings" option. Findings will then
 appear in the Findings tab of the Atomic Testing Detail View.
 
-### Defining a Rule
+#### Defining a Rule
 
 When adding a rule, the following properties must be defined:
 
-| Property     | Description                                                                                                                                                                                                                                                                                                                                          | Mandatory |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Name         | The name of the rule                                                                                                                                                                                                                                                                                                                                 | Yes       |
-| Key          | A unique key identifier                                                                                                                                                                                                                                                                                                                              | Yes       |
-| Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                                                                                                                                                                                                                                        | Yes       |
-| Tags         |                                                                                                                                                                                                                                                                                                                                                      | No        |
-| Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line).                                                                                                                                                                                                            | Yes       |
-| Output Value | Depending of the type you will have a X number of fields that could be extracted using the index of the group regex. For example: Port Scan → Fields: assetId, host, port, service. Credentials → Fields: username, password. Others → A single extracted value. The group index must start with $ to differentiate between multiple capture groups. | Yes       |
+| Property     | Description                                                                                                                               | Mandatory |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Name         | The name of the rule                                                                                                                      | Yes       |
+| Key          | A unique key identifier                                                                                                                   | Yes       |
+| Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                             | Yes       |
+| Tags         |                                                                                                                                           | No        |
+| Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). | Yes       |
+| Output Value | Definition                                                                                                                                | Yes       |
+
+##### Output Value Mapping
+
+Depending on the Type, a specific number of fields can be extracted using the group index from the regex.
+
+Examples:
+
+Port Scan → Extracted fields: assetId, host, port, service
+
+Credentials → Extracted fields: username, password
+
+Other Types → A single extracted value
+
+The group index must start with $ to differentiate between multiple capture groups.
+
 
 ### Payload execution workflow
 
