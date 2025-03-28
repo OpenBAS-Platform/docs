@@ -114,7 +114,7 @@ accessibility, detect issues, and simulate potential attacker behavior.
 ### Output Parsers
 
 Output Parsers allows processing the raw output from an execution. You can define rules to extract specific data from
-the output and link it to variables. 
+the output and link it to variables.
 These variables can then be used for [chaining injects](../injects.md/#conditional-execution-of-injects).
 
 Currently, Output Parsers support:
@@ -136,22 +136,19 @@ When adding a rule, the following properties must be defined:
 | Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                             | Yes       |
 | Tags         |                                                                                                                                           | No        |
 | Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). | Yes       |
-| Output Value | Definition                                                                                                                                | Yes       |
+| Output Value | Map each regex capture group to the corresponding fields based on the selected type                                                       | Yes       |
 
 ##### Output Value Mapping
 
-Depending on the Type, a specific number of fields can be extracted using the group index from the regex.
+Depending on the Type, a specific number of fields can be extracted using the group index from the regex :
 
-Examples:
-
-Port Scan → Extracted fields: assetId, host, port, service
-
-Credentials → Extracted fields: username, password
-
-Other Types → A single extracted value
+| Type        | Fields                       |
+|-------------|------------------------------|
+| Port Scan   | assetId, host, port, service |
+| Credentials | username, password           |
+| Other       | single extracted value       |
 
 The group index must start with $ to differentiate between multiple capture groups.
-
 
 ### Payload execution workflow
 
