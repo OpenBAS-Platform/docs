@@ -115,14 +115,17 @@ accessibility, detect issues, and simulate potential attacker behavior.
 
 Output Parsers allows processing the raw output from an execution. You can define rules to extract specific data from
 the output and link it to variables.
+
 These variables can then be used for [chaining injects](../injects.md/#conditional-execution-of-injects).
+
+![Output Parser](assets/outputparser-detail.png)
 
 Currently, Output Parsers support:
 
 * Output Mode: **StdOut**
 * Parsing Type: **REGEX**
 
-If the extracted data is compatible with a [Finding](../findings.md), you can enable the checkbox "Show in Findings"
+If the extracted data is compatible with a [Finding](../findings.md), you can enable **"Show in Findings"**
 option. They will then appear in the Findings tab of the Atomic Testing Detail View.
 
 #### Defining a Rule
@@ -148,7 +151,7 @@ Depending on the Type, a specific number of fields can be extracted using the gr
 | Credentials | username, password           |
 | Other       | single extracted value       |
 
-The group index must start with $ to differentiate between multiple capture groups.
+The group index must start with **$** to differentiate between multiple capture groups.
 
 ### Payload execution workflow
 
