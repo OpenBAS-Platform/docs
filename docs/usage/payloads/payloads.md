@@ -26,7 +26,6 @@ To create a new payload, follow these steps:
    4.1 Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
    4.2 Specify whether to generate **[Findings](../findings.md)** from the output.
 
-
 ![Payload general view](assets/payload-general-view.png)
 ![Payload command view](assets/payload-command-view.png)
 ![Payload output parser view](assets/payload-output-parser-view.png)
@@ -124,14 +123,14 @@ option. They will then appear in the Findings tab of the Atomic Testing Detail V
 
 When adding a rule, the following properties must be defined:
 
-| Property     | Description                                                                                                                               | Mandatory |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Name         | The name of the rule.                                                                                                                     | Yes       |
-| Key          | A unique key identifier.                                                                                                                  | Yes       |
-| Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                             | Yes       |
-| Tags         |                                                                                                                                           | No        |
-| Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). | Yes       |
-| Output Value | Map each regex capture group to the corresponding fields based on the selected type.                                                      | Yes       |
+| Property     | Description                                                                                                                                                                                                                                                       | Mandatory |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Name         | The name of the rule.                                                                                                                                                                                                                                             | Yes       |
+| Key          | A unique key identifier.                                                                                                                                                                                                                                          | Yes       |
+| Type         | The data type being extracted (e.g., Text, Number, Port, IPv4, IPv6, Port Scan, Credentials).                                                                                                                                                                     | Yes       |
+| Tags         |                                                                                                                                                                                                                                                                   | No        |
+| Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). Currently, We use these flags by default: Pattern.MULTILINE, Pattern.CASE_INSENSITIVE, Pattern.UNICODE_CHARACTER_CLASS. | Yes       |
+| Output Value | Map each regex capture group to the corresponding fields based on the selected type.                                                                                                                                                                              | Yes       |
 
 ### Output Value Mapping
 
