@@ -109,15 +109,13 @@ the output and link it to variables.
 
 These variables can then be used for [chaining injects](../injects.md/#conditional-execution-of-injects).
 
-![Output Parser](assets/outputparser-detail.png)
-
 Currently, Output Parsers support:
 
 * Output Mode: **StdOut**
 * Parsing Type: **REGEX**
 
 If the extracted data is compatible with a [Finding](../findings.md), you can enable **"Show in Findings"**
-option. They will then appear in the Findings tab of the Atomic Testing Detail View.
+option. They will then appear in the Findings tab of the [Atomic Testing Detail View](../atomic.md).
 
 #### Defining a Rule
 
@@ -132,17 +130,39 @@ When adding a rule, the following properties must be defined:
 | Regex        | A regular expression (REGEX) to extract data from the raw output. Supports capturing groups and line anchors (e.g., ^ for start of line). Currently, We use these flags by default: Pattern.MULTILINE, Pattern.CASE_INSENSITIVE, Pattern.UNICODE_CHARACTER_CLASS. | Yes       |
 | Output Value | Map each regex capture group to the corresponding fields based on the selected type.                                                                                                                                                                              | Yes       |
 
-### Output Value Mapping
+#### Output Value Mapping
 
 Depending on the Type, a specific number of fields can be extracted using the group index from the regex :
 
 | Type        | Fields                       |
 |-------------|------------------------------|
-| Port Scan   | assetId, host, port, service |
+| Port Scan   | host, port, service |
 | Credentials | username, password           |
 | Other       | single extracted value       |
 
 The group index must start with **$** to differentiate between multiple capture groups.
+
+#### Example: Extracting Elements with Regex for a Port Scan Rule
+
+In the next image, you can see a rule named **Port Scan (port_scan)** with the type **Port Scan**. This rule includes a
+**regex pattern(`^\\s*(TCP|UDP)\\s+([\\d\\.]+|\\*)?:?(\\d+)\\s+\\S+\\s+(\\S+)`)**, which defines **four capture groups**
+you could extract from the raw output.
+
+![Output Parser](assets/outputparser-detail.png)
+
+You can define the format of your output in the **Output Value** section. For this example, each field is mapped to a
+specific capture group:
+
+- **Host** (`$2`)
+- **Port** (`$3`)
+- **Service** (`$4`)
+
+The finding generate will be :
+
+![Output Parser](assets/finding-port-scan.png)
+
+If you want to combine multiple groups in a field, you have to concatenate them like `$n$m` (placing the group
+references next to each other). The final value of the field will be a composition of these groups.
 
 ### Payload execution workflow
 
