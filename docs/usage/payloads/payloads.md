@@ -157,7 +157,7 @@ specific capture group:
 - **Port** (`$3`)
 - **Service** (`$4`)
 
-The finding generate will be :
+The finding generated would be:
 
 ![Output Parser](assets/finding-port-scan.png)
 
