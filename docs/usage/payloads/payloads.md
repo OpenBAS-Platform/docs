@@ -115,7 +115,12 @@ Currently, Output Parsers support:
 * Parsing Type: **REGEX**
 
 If the extracted data is compatible with a [Finding](../findings.md), you can enable **"Show in Findings"**
-option. They will then appear in the Findings tab of the [Atomic Testing Detail View](../atomic.md).
+option. 
+
+The findings results and the details of the output parser will also be available in the Findings and Payload Info tabs of the [Atomic Testing Detail View](../atomic.md).
+
+![Output Parser](assets/outputparser-inject-findings.png)
+![Output Parser](assets/outputparser-inject-detail.png)
 
 #### Defining a Rule
 
