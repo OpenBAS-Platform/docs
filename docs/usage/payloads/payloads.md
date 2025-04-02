@@ -8,48 +8,57 @@ Payloads enhance the platform, allowing you to further customize your scenarios.
 
 To create a new payload, follow these steps:
 
-1. Click the **"+" button** in the bottom right corner of the screen.
-2. In the **General Information** tab, fill in the required details about the payload.
-3. In the **Commands** tab:
+1. Click the **"+"** button in the bottom right corner of the screen.
+2. In the **General Information** tab, fill in the required details about the payload.   
+    2.1. Assign a name to your new payload and provide additional general details such as description, attack patterns and tags.
+   ![Payload general view](assets/payload-general-view.png)
+3. In the **Commands** tab:   
+    3.1. Choose a **payload type** based on your needs:
+      - **Command Line**: Executes a command using an executor (e.g., PowerShell, Bash, etc.).
+      - **Executable**: Runs an executable file on an asset.
+      - **File Drop**: Drops a file onto an asset.
+      - **DNS Resolution**: Resolves a hostname into IP addresses.    
+   
+    3.2. Specify the platform and provide additional command details, such as arguments and prerequisites.  
+    3.3. Specify a **cleanup executor and cleanup command** to remove any remnants from execution on the asset.  
+    ![Payload command view](assets/payload-command-view.png)
 
-   3.1 Choose a **payload type** based on your needs:
-    - **Command Line**: Executes a command using an executor (e.g., PowerShell, Bash, etc.).
-    - **Executable**: Runs an executable file on an asset.
-    - **File Drop**: Drops a file onto an asset.
-    - **DNS Resolution**: Resolves a hostname into IP addresses.
-
-   3.2 Provide **additional execution details**, such as arguments and prerequisites.  
-   3.3 Specify a **cleanup executor and cleanup command** to remove any remnants from execution on the asset.
-
-4. In the **Output Parsers** tab (optional):
-
-   4.1 Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
-   4.2 Specify whether to generate **[Findings](../findings.md)** from the output.
-
-![Payload general view](assets/payload-general-view.png)
-![Payload command view](assets/payload-command-view.png)
-![Payload output parser view](assets/payload-output-parser-view.png)
+4. In the **Output Parsers** tab (optional):  
+    4.1. Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
+    4.2. Specify whether to generate **[Findings](../findings.md)** from the output.  
+    ![Payload output parser view](assets/payload-output-parser-view.png)
 
 Once completed, your new payload will appear in the payload list.
 
 ### General Payload properties
 
-| Property        | Description                     |
-|-----------------|---------------------------------|
-| Name            | Payload name                    |
-| Description     | Payload description             |
-| Attack patterns | Command-related attack patterns |
-| Tags            | Tags                            |
+| Property           | Description                                                     |
+|--------------------|-----------------------------------------------------------------|
+| Name               | Payload name                                                    |
+| Description        | Payload description                                             |
+| Attack patterns    | Command-related attack patterns                                 |
+| Tags               | Tags                                                            |
+
+### Commands Common Payload properties
+
+| Property         | Description                                                                          |
+|------------------|--------------------------------------------------------------------------------------|
+| Type             | Type of payload such as Command Line, Executable, File Drop or Dns Resolution        |
+| Architecture     | Architecture in which the command can be executed (x86_64, arm64, all architectures) |
+| Platforms        | Compatible platforms (ex. Windows, Linux, MacOS)                                     |
+| Prerequisites    | Prerequisites required to execute the command                                        |
+| Cleanup executor | Executor for cleaning commands                                                       |
+| Cleanup command  | Cleanup command to remove or reset changes made                                      |
+| Arguments        | Arguments for the cleanup, prerequisites and potential command line                  |
 
 #### Prerequisites in depth
 
-| Property         | Description                                                         |
-|------------------|---------------------------------------------------------------------|
-| Platforms        | Compatible platforms (ex. Windows, Linux, MacOS)                    | 
-| Arguments        | Arguments for the cleanup, prerequisites and potential command line |                                                                                                                                                                                                                                         |
-| Prerequisites    | Prerequisites required to execute the command                       |                                                                                                                                                                                                                      |
-| Cleanup executor | Executor for cleaning commands                                      |                                     |
-| Cleanup command  | Cleanup command to remove or reset changes made                     |                    
+| Property               | Description                                                   |
+|------------------------|---------------------------------------------------------------|
+| Command executor	      | Executor for prerequisite                                     | 
+| Check command          | Verifies if specific condition are met                        |                                                                                                                                                                                                                                         |
+| Get command            | Run command if check command failed                           |                                                                                                                                                                                                                      |
+
 
 ### Additional Payload properties by type
 
@@ -63,8 +72,7 @@ escalation or data exfiltration.
 
 | Property         | Description                                                                          |
 |------------------|--------------------------------------------------------------------------------------|
-| Architecture     | Architecture in which the command can be executed (x86_64, arm64, all architectures) |
-| Command executor | Executor for command to execute                                                      |
+ | Command executor | Executor for command to execute                                                      |
 | Command          | Command to execute                                                                   |
 
 #### Executable
@@ -76,7 +84,6 @@ Executables can perform a variety of functions, from establishing a backdoor to 
 
 | Property        | Description                                                           |
 |-----------------|-----------------------------------------------------------------------|
-| Architecture    | Architecture in which the command can be executed (ex. x86_64, arm64) |
 | Executable file | File to execute                                                       |
 
 #### File Drop
@@ -155,7 +162,7 @@ you could extract from the raw output.
 
 ![Output Parser](assets/outputparser-detail.png)
 
-You can define the format of your output in the **Output Value** section. For this example, each field is mapped to a
+You can define the group used to build the output in the **Output Value** section. For this example, each field is mapped to a
 specific capture group:
 
 - **Host** (`$2`)
