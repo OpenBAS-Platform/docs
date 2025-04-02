@@ -160,7 +160,7 @@ specific capture group:
 
 - **Host** (`$2`)
 - **Port** (`$3`)
-- **Service** (`$4`)
+- **Service** (`$6`)
 
 The finding generated would be:
 
