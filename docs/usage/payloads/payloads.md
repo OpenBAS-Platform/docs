@@ -10,34 +10,35 @@ To create a new payload, follow these steps:
 
 1. Click the **"+"** button in the bottom right corner of the screen.
 2. In the **General Information** tab, fill in the required details about the payload.   
-    2.1. Assign a name to your new payload and provide additional general details such as description, attack patterns and tags.
+   2.1. Assign a name to your new payload and provide additional general details such as description, attack patterns
+   and tags.
    ![Payload general view](assets/payload-general-view.png)
 3. In the **Commands** tab:   
-    3.1. Choose a **payload type** based on your needs:
-      - **Command Line**: Executes a command using an executor (e.g., PowerShell, Bash, etc.).
-      - **Executable**: Runs an executable file on an asset.
-      - **File Drop**: Drops a file onto an asset.
-      - **DNS Resolution**: Resolves a hostname into IP addresses.    
-   
-    3.2. Specify the platform and provide additional command details, such as arguments and prerequisites.  
-    3.3. Specify a **cleanup executor and cleanup command** to remove any remnants from execution on the asset.  
-    ![Payload command view](assets/payload-command-view.png)
+   3.1. Choose a **payload type** based on your needs:
+    - **Command Line**: Executes a command using an executor (e.g., PowerShell, Bash, etc.).
+    - **Executable**: Runs an executable file on an asset.
+    - **File Drop**: Drops a file onto an asset.
+    - **DNS Resolution**: Resolves a hostname into IP addresses.
+
+   3.2. Specify the platform and provide additional command details, such as arguments and prerequisites.  
+   3.3. Specify a **cleanup executor and cleanup command** to remove any remnants from execution on the asset.  
+   ![Payload command view](assets/payload-command-view.png)
 
 4. In the **Output Parsers** tab (optional):  
-    4.1. Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
-    4.2. Specify whether to generate **[Findings](../findings.md)** from the output.  
-    ![Payload output parser view](assets/payload-output-parser-view.png)
+   4.1. Add **[Output Parsers](#output-parsers)** to process the raw output of your execution.  
+   4.2. Specify whether to generate **[Findings](../findings.md)** from the output.  
+   ![Payload output parser view](assets/payload-output-parser-view.png)
 
 Once completed, your new payload will appear in the payload list.
 
 ### General Payload properties
 
-| Property           | Description                                                     |
-|--------------------|-----------------------------------------------------------------|
-| Name               | Payload name                                                    |
-| Description        | Payload description                                             |
-| Attack patterns    | Command-related attack patterns                                 |
-| Tags               | Tags                                                            |
+| Property        | Description                     |
+|-----------------|---------------------------------|
+| Name            | Payload name                    |
+| Description     | Payload description             |
+| Attack patterns | Command-related attack patterns |
+| Tags            | Tags                            |
 
 ### Commands Common Payload properties
 
@@ -53,12 +54,11 @@ Once completed, your new payload will appear in the payload list.
 
 #### Prerequisites in depth
 
-| Property               | Description                                                   |
-|------------------------|---------------------------------------------------------------|
-| Command executor	      | Executor for prerequisite                                     | 
-| Check command          | Verifies if specific condition are met                        |                                                                                                                                                                                                                                         |
-| Get command            | Run command if check command failed                           |                                                                                                                                                                                                                      |
-
+| Property          | Description                            |
+|-------------------|----------------------------------------|
+| Command executor	 | Executor for prerequisite              | 
+| Check command     | Verifies if specific condition are met |                                                                                                                                                                                                                                         |
+| Get command       | Run command if check command failed    |                                                                                                                                                                                                                      |
 
 ### Additional Payload properties by type
 
@@ -70,10 +70,10 @@ This payload type executes commands directly on the command line interface (CLI)
 Command Line payloads are used for remote command execution to simulate common attacker actions like privilege
 escalation or data exfiltration.
 
-| Property         | Description                                                                          |
-|------------------|--------------------------------------------------------------------------------------|
- | Command executor | Executor for command to execute                                                      |
-| Command          | Command to execute                                                                   |
+| Property         | Description                     |
+|------------------|---------------------------------|
+| Command executor | Executor for command to execute |
+| Command          | Command to execute              |
 
 #### Executable
 
@@ -82,9 +82,9 @@ as an independent process.
 
 Executables can perform a variety of functions, from establishing a backdoor to running complex scripts (mimic malware).
 
-| Property        | Description                                                           |
-|-----------------|-----------------------------------------------------------------------|
-| Executable file | File to execute                                                       |
+| Property        | Description     |
+|-----------------|-----------------|
+| Executable file | File to execute |
 
 #### File Drop
 
@@ -122,9 +122,10 @@ Currently, Output Parsers support:
 * Parsing Type: **REGEX**
 
 If the extracted data is compatible with a [Finding](../findings.md), you can enable **"Show in Findings"**
-option. 
+option.
 
-The findings results and the details of the output parser will also be available in the Findings and Payload Info tabs of the [Atomic Testing Detail View](../atomic.md).
+The findings results and the details of the output parser will also be available in the Findings and Payload Info tabs
+of the [Atomic Testing Detail View](../atomic.md).
 
 ![Output Parser](assets/outputparser-inject-findings.png)
 ![Output Parser](assets/outputparser-inject-detail.png)
@@ -146,11 +147,11 @@ When adding a rule, the following properties must be defined:
 
 Depending on the Type, a specific number of fields can be extracted using the group index from the regex :
 
-| Type        | Fields                       |
-|-------------|------------------------------|
-| Port Scan   | host, port, service |
-| Credentials | username, password           |
-| Other       | single extracted value       |
+| Type        | Fields                 | Output format       |
+|-------------|------------------------|---------------------|
+| Port Scan   | host, port, service    | host:port (service) |
+| Credentials | username, password     | username:password   |
+| Other       | single extracted value | single value        |
 
 The group index must start with **$** to differentiate between multiple capture groups.
 
@@ -162,7 +163,8 @@ you could extract from the raw output.
 
 ![Output Parser](assets/outputparser-detail.png)
 
-You can define the group used to build the output in the **Output Value** section. For this example, each field is mapped to a
+You can define the group used to build the output in the **Output Value** section. For this example, each field is
+mapped to a
 specific capture group:
 
 - **Host** (`$2`)
