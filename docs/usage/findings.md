@@ -4,11 +4,13 @@ Findings provide insights into discovered security weaknesses, misconfigurations
 
 They are generated from the injector's structured output, which can take multiple forms, including IPv4, Text, IPv6, Port, PortScan (object), and Credentials (object).
 
-Each finding is associated with an [Inject](injects.md) and an [Asset (endpoint)](assets.md).
+Each finding is associated with an [Inject](injects.md) and an [Asset (endpoint)](assets.md). 
 
-## Inject
+Findings can be accessed at various levels of the platform:
+- On the global page   
+- At the scenario level   
+- At the simulation level   
+- At the inject level  
+- At the endpoint level  
 
-You can find findings in the inject result page (only for an [Atomic testing](atomic.md) at the moment)
-
-![Findings](assets/findings.png)
 
