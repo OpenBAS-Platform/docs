@@ -47,6 +47,14 @@ $ mkdocs serve
 Starting server at http://localhost:8000/
 ```
 
+Upgrade dependencies
+```shell
+$ cd docs/
+$ source .venv/bin/activate
+$ pip install --upgrade -r requirements.txt
+$ pip install --upgrade git+https://TOKEN@github.com/squidfunk/mkdocs-material-insiders.git
+```
+
 ## Deploy the documentation
 
 ### Update the source

@@ -123,6 +123,7 @@ nav:
       - Collectors: deployment/ecosystem/collectors.md
       - Other resources: deployment/resources.md
     - Advanced:
+      - Platform managers: deployment/managers.md
       - Clustering: deployment/clustering.md
       - Troubleshooting: deployment/troubleshooting.md
   - User Guide:
@@ -137,6 +138,7 @@ nav:
       - Injects: usage/injects.md
       - Targets: usage/targets.md
       - Expectations: usage/expectations.md
+      - Findings: usage/findings.md
     - Build your own Threat Scenario:
       - Scenario: usage/scenario.md
       - Generating Scenario from OpenCTI: usage/scenario/opencti_scenario.md
@@ -175,6 +177,8 @@ nav:
   - Reference:
       - APIs:
           - Filters: reference/apis/filters.md
+      - Deployment and stack:
+          - Telemetry: reference/deployment/telemetry.md
   - Development:
     - Prerequisites:
       - Ubuntu: development/environment_ubuntu.md
@@ -184,6 +188,7 @@ nav:
     - Collectors: development/collectors.md
     - Injectors: development/injectors.md
     - REST API: development/api-usage.md
+    - Best Practices: development/translations.md
 
 
 
