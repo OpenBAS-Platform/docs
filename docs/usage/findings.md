@@ -7,10 +7,18 @@ They are generated from the injector's structured output, which can take multipl
 Each finding is associated with an [Inject](injects.md) and an [Asset (endpoint)](assets.md). 
 
 Findings can be accessed at various levels of the platform:
-- On the global page   
-- At the scenario level   
-- At the simulation level   
-- At the inject level  
-- At the endpoint level  
+
+- Global level 
+  ![Global](assets/findings-global-view.png)
+- Scenario level  
+  ![Scenario](assets/findings-scenarios-view.png)
+- Simulation level  
+  ![Simulation](assets/findings-simulation-view.png)   
+- Inject level   
+  ![Inject](assets/findings-inject-view.png) 
+- Atomic level
+  ![Atomic](assets/findings-atomic-view.png) 
+- Endpoint level   
+  ![Endpoint](assets/findings-endpoint-view.png) 
 
 
