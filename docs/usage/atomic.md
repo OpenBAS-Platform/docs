@@ -45,8 +45,8 @@ The "available variables" button helps you to use already defined variables into
 ## Atomic testing screens
 
 Details of an Atomic testing is composed of three parts:
-- a header allowing to launch the test, see its state and update/delete it.
-- an Overview screen to eaily see the results of the test.
+- a header composed of title, tooltip with information about inject (execution status, tags, description), the results of execution and section of actions: Launch, update, delete, export.
+- an Overview screen to easily see the results of the test.
 - an execution details screen to see expectations of the test and investigate on execution logs
 
 ### Overview
@@ -58,6 +58,11 @@ As for Simulation and Scenario, Results are broken down into:
 - Detection: the ability of your security posture to detect the inject
 - Human response: the ability of your security teams to react as intented facing the inject
 
+details about the configuration, the command lines (if relevant) and the execution logs of the atomic testing and its expectations.
+
+You can also see the raw execution logs of the [Injector](injectors.md) responsible for the test execution.
+
+
 Big metrics on top of the screen sum up the expectations' result of all targets. 
 
 The list of targets on the left allows you to easily see the result per Target, and for example investigate further why a specific Asset have failed the test.
@@ -68,9 +73,7 @@ For a selected target, you can on the right the timeline of the test against the
 
 ### Execution details
 
-On this screen, you can retrieve details about the configuration, the command lines (if relevant) and the execution logs of the atomic testing and its expectations.
-
-You can also see the raw execution logs of the [Injector](injectors.md) responsible for the test execution.
+On this screen, you can find the global execution traces related directly to inject. 
 
 ![Execution trace of a successfull atomic testing](assets/atomic_testing_execution_details.png)
 
