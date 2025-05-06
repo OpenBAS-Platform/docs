@@ -83,9 +83,9 @@ Here are the configuration keys, for both containers (environment variables) and
 
 #### ElasticSearch
 
-| Parameter     | Environment variable | Default value         | Description                                                                                   |
-|:--------------|:---------------------|:----------------------|:----------------------------------------------------------------------------------------------|
-| engine.url    | ENGINE_URL           | http://localhost:9200 | URL of the ElasticSearch database (ex jdbc:postgresql://postgresql.mydomain.com:5432/openbas) |
+| Parameter     | Environment variable | Default value         | Description                       |
+|:--------------|:---------------------|:----------------------|:----------------------------------|
+| engine.url    | ENGINE_URL           | http://localhost:9200 | URL of the ElasticSearch database |
 
 #### RabbitMQ
 
