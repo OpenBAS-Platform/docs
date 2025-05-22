@@ -1511,23 +1511,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inject-status-using-the-openbas-agent" class="md-nav__link">
+  <a href="#inject-status-using-obas-agent" class="md-nav__link">
     <span class="md-ellipsis">
-      Inject status using the OpenBAS agent
+      Inject status using OBAS agent
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Inject status using the OpenBAS agent">
+    <nav class="md-nav" aria-label="Inject status using OBAS agent">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#navigating-between-active-inject-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Navigating between active inject targets
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#viewing-execution-traces" class="md-nav__link">
@@ -3617,23 +3608,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inject-status-using-the-openbas-agent" class="md-nav__link">
+  <a href="#inject-status-using-obas-agent" class="md-nav__link">
     <span class="md-ellipsis">
-      Inject status using the OpenBAS agent
+      Inject status using OBAS agent
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Inject status using the OpenBAS agent">
+    <nav class="md-nav" aria-label="Inject status using OBAS agent">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#navigating-between-active-inject-targets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Navigating between active inject targets
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#viewing-execution-traces" class="md-nav__link">
@@ -3936,13 +3918,7 @@ tests.</p>
 <p>The user can also replay all the tests in the list. An icon similar to the one in the injects toolbar is available at
 the top of the list. After clicking on it, the user confirms the tests launch and the details are updated.</p>
 <h2 id="inject-status">Inject status</h2>
-<h3 id="inject-status-using-the-openbas-agent">Inject status using the OpenBAS agent</h3>
-<h4 id="navigating-between-active-inject-targets">Navigating between active inject targets</h4>
-<p>All targets that are selected for the inject are available on the Targets panel on the left side of the screen. There is a
-tab for each target type (Asset group, Endpoint, Agent, Team and Player), and only the tabs that have at least one active
-target are visible on the screen.</p>
-<p>Since there may be a large number of targets of the same type (depending on your selection), a pagination utility
-with various filters is provided to help skim through the list.</p>
+<h3 id="inject-status-using-obas-agent">Inject status using OBAS agent</h3>
 <h4 id="viewing-execution-traces">Viewing Execution Traces</h4>
 <p>When you create a technical Inject, you assign it to endpoints, each of which may have one or multiple agents. As the
 inject executes, agents communicate their progress to the OBAS Server, which logs detailed execution traces.</p>
@@ -3990,13 +3966,13 @@ compute the agent status.</p>
 (SIEM or EDR) linked to the EDRs present on the tested assets.</p>
 <p><a class="glightbox" href="../assets/inject-expectation-traces-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Inject execution traces details" src="../assets/inject-expectation-traces-1.png" /></a></p>
 <p>By selecting an agent on the <code>Targets</code> panel, you can access the traces details that were retrieved by OpenBAS.</p>
-<p>On the above example, we can see that there are 2 agents on the <code>vm3.obas.lan</code> asset. We can see there are detections on the
-OpenBAS agent, while the Crowdstrike agent hasn't had any yet (it can take several minutes for the traces to
+<p>On the above example, we can see that there are 3 agents on the <code>mac.home</code> asset. We can see there are detections on the
+OpenBAS and CrowdStrike agents, while the Tanium agent hasn't had any yet (it can take several minutes for the traces to
 show up in OpenBAS).</p>
-<p>By clicking on the OpenBAS agent, we can see that the inject's payload was already detected by the CrowdStrike Falcon EDR
-while more detections might arrive at a later point.
-We can also see that there was one alert identified on CrowdStrike Falcon EDR.</p>
-<p>To get the details of this alert, you can click on the CrowdStrike line to see this:</p>
+<p>By clicking on the CrowdStrike agent, we can see that the inject's payload was detected by CrowdStrike and Defender, and
+traces are available on Sentinel as well.
+We can also see that there were 2 alerts on CrowdStrike, and 1 on Defender and Sentinel.</p>
+<p>To get the details of these alerts, you can click on the CrowStrike line to see this:</p>
 <p><a class="glightbox" href="../assets/inject-expectation-traces-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Inject execution traces alert details" src="../assets/inject-expectation-traces-2.png" /></a></p>
 <p>On this new panel, you can click on the alert name, and you will be redirected to the alert details on the corresponding
 security platform.</p>
@@ -4099,7 +4075,7 @@ exercises.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 20, 2025 14:31:14"><span class="timeago" datetime="2025-05-20T14:31:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 20, 2025 14:31:14">2025-05-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 24, 2025 16:27:19"><span class="timeago" datetime="2025-04-24T16:27:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 24, 2025 16:27:19">2025-04-24</span>
   </span>
 
     
