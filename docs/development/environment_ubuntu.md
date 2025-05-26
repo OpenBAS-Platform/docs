@@ -1,9 +1,9 @@
 # Prerequisites Ubuntu
 
 ## Backend
-* OpenJDK >= 21 and Maven via `apt-get`:
+* git, OpenJDK >= 21 and Maven via `apt-get`:
 ```shell
-apt-get update && apt-get install openjdk-21-jdk maven
+apt-get update && apt-get install git openjdk-21-jdk maven
 ```
 * Docker Engine: follow the official instructions at [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
