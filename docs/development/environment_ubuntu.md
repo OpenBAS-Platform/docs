@@ -11,7 +11,7 @@ apt-get update && apt-get install git openjdk-21-jdk maven
 * yarn via `apt-get`
 
 ```shell
-apt-get update && apt-get install openjdk-21-jdk maven
+apt-get update && apt-get install yarnpkg
 ```
 
 * Node.js >= 20 via `nvm`
