@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration name="mkdocs serve" type="ShConfigurationType">
+    <configuration name="mkdocs serve (Linux)" type="ShConfigurationType">
         <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
         <option name="SCRIPT_PATH" value="$PROJECT_DIR$/serve.sh" />
         <option name="SCRIPT_OPTIONS" value="" />
