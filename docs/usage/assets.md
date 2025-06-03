@@ -71,7 +71,7 @@ Users have two ways to create agentless endpoints:
 
     Buttons for import and export of endpoints are available at the top of the list. The csv for the import must have 
     the following columns: name, description, hostname, ips, platform, arch, macAddresses and tags. The exported csv 
-    has the same coloums. 
+    has the same coloumns. Export is a good way to visualize the correct format of the columns for the the import.
     
 
 ## Asset groups
