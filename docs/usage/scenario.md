@@ -66,8 +66,8 @@ Click the Create injects button to let the system automatically generate injects
 
 ![scenario-assistant-drawer](./scenario/assets/scenario-assistant-drawer.png)
 
-In the Enterprise Edition, you have the ability to select TTPs using Ariane AI. 
-This intelligent system can analyze text and files to accurately extract and identify relevant TTPs.
+In the Enterprise Edition, you have the ability to select TTPs using Ariane AI.
+This system can analyze text and files such as threat reports to accurately identify and extract relevant TTPs to cover for your simulations.
 
 ![ariane-scenario-assistant-modal](./scenario/assets/ariane-scenario-assistant-modal.png)
 
