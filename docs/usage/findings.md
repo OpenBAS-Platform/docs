@@ -13,7 +13,7 @@ initially displayed to provide a high-level overview.
 
 When a specific finding is clicked, a drawer opens to reveal more detailed information. This includes:
 * The associated inject(s) where the finding was discovered
-* For CVE-type findings, enriched data previously sourced from taxonomies is available, such as:
+* For CVE-type findings, enriched data previously sourced from [taxonomies](../administration/taxonomies.md) is available, such as:
   - General information about the CVE 
   - A Remediation tab with actionable recommendations 
 
