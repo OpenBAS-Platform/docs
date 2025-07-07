@@ -46,3 +46,4 @@ teams.
 In OpenBAS, CVEs are used to associate known vulnerabilities with assets, payloads, and injects. This allows users to
 simulate attacks based on real-world flaws, enhancing the relevance and precision of security testing.
 
+You can add, edit, or delete CVEs.
