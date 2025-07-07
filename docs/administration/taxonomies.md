@@ -3,7 +3,6 @@
 Taxonomies in OpenBAS refer to the structured classification systems that help in organizing and categorizing platform
 data. They are essential to the platform, enabling users to systematically tag and retrieve information based on
 predefined categories and terms.
-predefined categories and terms.
 
 ## Tags
 
