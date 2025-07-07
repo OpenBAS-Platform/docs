@@ -13,9 +13,9 @@ initially displayed to provide a high-level overview.
 
 When a specific finding is clicked, a drawer opens to reveal more detailed information. This includes:
 * The associated inject(s) where the finding was discovered
-* For CVE-type findings, enriched data is available, such as:
-  - General information about the CVE (previously sourced from taxonomies)
-  - A Remediation tab with actionable recommendations
+* For CVE-type findings, enriched data previously sourced from taxonomies is available, such as:
+  - General information about the CVE 
+  - A Remediation tab with actionable recommendations 
 
 - Global level
   ![Global](assets/findings-global-view.png)
