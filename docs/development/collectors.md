@@ -15,7 +15,7 @@ them against injected expectations in OpenBAS.
     because it communicates with the OpenBAS server via its REST API. However, Filigran provides an official implementation
     of a REST client for the OpenBAS API, in python: PyOBAS.
 
-In this guide, we will use PyOBAS, the official OpenBAS API client for Python. The guide requires a basic understanding
+In this guide, we will use [PyOBAS](https://pypi.org/project/pyobas/), the official OpenBAS API client for Python. The guide requires a basic understanding
 of the Python language, and a working Python install on the development machine.
 
 ### High level overview
@@ -139,6 +139,7 @@ Your collector will register to OpenBAS and you can view in Integrations > Colle
 ## Learn more
 
 You may find reference implementations in the OpenBAS Collectors repository:
+
 * [Crowdstrike Falcon EDR](https://github.com/OpenBAS-Platform/collectors/tree/main/crowdstrike)
 * [Microsoft Defender](https://github.com/OpenBAS-Platform/collectors/tree/main/microsoft-defender)
 * [Microsoft Sentinel](https://github.com/OpenBAS-Platform/collectors/tree/main/microsoft-sentinel)
