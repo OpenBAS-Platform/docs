@@ -61,11 +61,10 @@ In the Lesson Learned tab of a Simulation, you can manage the collection and con
 
 ## Analysis
 
+The Analysis tab is shown if you have selected a dashboard for your simulation (during creating or updating).
 The Analysis tab of a simulation is intended to enhance the data visualization and analytical capabilities of OpenBAS. 
 By incorporating specific widgets, users can gain deeper insights into the effectiveness of their simulations and security posture. 
-This enhancement will provide users with contextualized, actionable intelligence, enabling them to make informed decisions to improve their security strategies. 
+This enhancement will provide users with contextualized, actionable intelligence, enabling them to make informed decisions to improve their security strategies.
+If you have selected a dynamic parameter "Simulation" for your dashboard and widgets, they will be calculated for this specific simulation.
 
 ![Analyse a simulation](./assets/simulation-analysis-tab.png)
-
-NB: The Analysis tab is shown if you have selected a dashboard for your simulation (during creating or updating).
-Then, if you have selected a dynamic parameter "Simulation" for your dashboard and widgets, they will be calculated for this specific simulation.
