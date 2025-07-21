@@ -53,6 +53,8 @@ Here are the configuration keys, for both containers (environment variables) and
 | openbas.with-proxy                | OPENBAS_WITH-PROXY              | `false`                 | Turn on to authorize environment with proxy                                                                                                                                                                                                                                                                                                                                                                    |
 | openbas.extra-trusted-certs-dir   | OPENBAS_EXTRA-TRUSTED-CERTS-DIR |                         | If you want to set extra trusted self-signed TLS certificates to communicate with external applications (Crowdstrike, Tanium,...),<br/>fill this attribute with you local folder containing your public .PEM certs. If you install OpenBAS with Docker,<br/>uncomment the volume and set the attribute in the [docker compose file](https://github.com/OpenBAS-Platform/docker/blob/master/docker-compose.yml) | 
 
+⚠️ **Important**: If you are using the parameter `openbas.extra-trusted-certs-dir`, the file format needed for the certificates in the folder are public PEM-armoured (*.pem), DER-encoded X509 certs.
+
 #### Logging
 
 | Parameter                                   | Environment variable                        | Default value      | Description                                   |
