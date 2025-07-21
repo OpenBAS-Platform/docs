@@ -1619,6 +1619,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#import-scenarios-from-xtm-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import scenarios from XTM Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenario-overview" class="md-nav__link">
     <span class="md-ellipsis">
       Scenario overview
@@ -3235,6 +3244,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#import-scenarios-from-xtm-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import scenarios from XTM Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenario-overview" class="md-nav__link">
     <span class="md-ellipsis">
       Scenario overview
@@ -3342,10 +3360,20 @@
 <!-- screenshot du screen de la liste de scenarios -->
 
 <h2 id="create-a-scenario">Create a scenario</h2>
-<p>To create a scenario, hit the + button on the bottom right of the screen and define general metadata that make sense for you. </p>
+<p>To create a scenario, hit the + button on the bottom right of the screen and define general metadata that make sense for you.</p>
 <p><a class="glightbox" href="assets/create-scenario.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create a scenario" src="assets/create-scenario.png" /></a></p>
 <p>Once done, the scenario is accessible in the list. Click on it to see its details and define them.</p>
 <p>NB: The selected dashboard will appear in the Analysis tab, but only for the simulations related to this scenario.</p>
+<h2 id="import-scenarios-from-xtm-hub">Import scenarios from XTM Hub</h2>
+<p>XTM Hub provides access to a library of pre-built OpenBAS scenarios that you can import directly into your platform to quickly get started with realistic attack simulations.</p>
+<p>To import scenarios:</p>
+<ol>
+<li>Navigate to the Scenarios page</li>
+<li>Click on the <strong>"Import from Hub"</strong> button located at the top of the scenarios list</li>
+<li>Browse the available scenarios in the library</li>
+<li>Download and import the scenarios that match your testing requirements</li>
+</ol>
+<p>The library contains various scenarios covering different attack vectors, threat actors, and industry-specific use cases.</p>
 <h2 id="scenario-overview">Scenario overview</h2>
 <p>The overview provides comprehensive information for evaluating your security posture against the threat context over time. It displays the scenario's context along with the results of the simulations played from it. Additionally, the list of these simulations is shown, allowing easy access to their specific details and results.</p>
 <p>If the scenario has never been simulated, the results' widget contains an example of how results will be displayed, and the list of simulations is replaced with an invitation to generate one.</p>
@@ -3373,16 +3401,16 @@ Instead of manually creating each inject, the Scenario Assistant automates the p
 </div>
 <h3 id="how-to-use-the-scenario-assistant">How to Use the Scenario Assistant</h3>
 <ul>
-<li>Open the Scenario Assistant<br />
+<li>Open the Scenario Assistant
 Click the Scenario Assistant button to open the scenario assistant drawer.</li>
-<li>Select Targets<br />
+<li>Select Targets
 Endpoints: Choose specific endpoints to target.
 Asset Groups: Select an entire asset group.</li>
-<li>Choose TTPs<br />
+<li>Choose TTPs
 Select from a list of TTPs to define which adversary behaviors you'd like to cover.</li>
 <li>Specify Inject Quantities
 For each selected TTP, define how many injects you’d like the assistant to create.</li>
-<li>Generate Injects<br />
+<li>Generate Injects
 Click the Create injects button to let the system automatically generate injects according to your selections.</li>
 </ul>
 <p><a class="glightbox" href="assets/scenario-assistant-drawer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="scenario-assistant-drawer" src="assets/scenario-assistant-drawer.png" /></a></p>
@@ -3391,13 +3419,13 @@ This system can analyze text and files such as threat reports to accurately iden
 <p><a class="glightbox" href="assets/ariane-scenario-assistant-modal.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ariane-scenario-assistant-modal" src="assets/ariane-scenario-assistant-modal.png" /></a></p>
 <h3 id="what-happens-next">What happens next?</h3>
 <p>The Scenario Assistant generates injects based on your selected TTPs, ensuring compatibility with the platform architectures of your chosen endpoints or asset groups.</p>
-<p>When you select multiple assets with different architectures (for example, Linux x86_64 and Windows x86_64) along with a specific TTP (such as TTP 1072), the Scenario Assistant will: </p>
+<p>When you select multiple assets with different architectures (for example, Linux x86_64 and Windows x86_64) along with a specific TTP (such as TTP 1072), the Scenario Assistant will:</p>
 <ul>
-<li>Attempt to find a universal payload that supports the chosen TTP and is compatible with all selected architectures.  </li>
-<li>If no universal payload is available, it will look for individual payloads that match each asset’s specific platform architecture.  </li>
-<li>For asset groups, the Scenario Assistant will try to find a payload that covers all asset platforms architectures within the group.  </li>
-<li>If a perfect match cannot be found, it will prioritize payloads that are compatible with the largest subset of assets in the group.  </li>
-<li>If no suitable payloads are found, the assistant will create an inject with a placeholder for the TTP and targets.  </li>
+<li>Attempt to find a universal payload that supports the chosen TTP and is compatible with all selected architectures.</li>
+<li>If no universal payload is available, it will look for individual payloads that match each asset’s specific platform architecture.</li>
+<li>For asset groups, the Scenario Assistant will try to find a payload that covers all asset platforms architectures within the group.</li>
+<li>If a perfect match cannot be found, it will prioritize payloads that are compatible with the largest subset of assets in the group.</li>
+<li>If no suitable payloads are found, the assistant will create an inject with a placeholder for the TTP and targets.</li>
 </ul>
 <p><a class="glightbox" href="assets/scenario-assistant-injects.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="scenario-assistant-injects" src="assets/scenario-assistant-injects.png" /></a></p>
 <h2 id="launching-a-simulation-of-the-scenario">Launching a simulation of the scenario</h2>
@@ -3428,7 +3456,7 @@ This system can analyze text and files such as threat reports to accurately iden
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 15, 2025 09:04:07"><span class="timeago" datetime="2025-07-15T09:04:07+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 15, 2025 09:04:07">2025-07-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 21, 2025 10:20:33"><span class="timeago" datetime="2025-07-21T10:20:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 21, 2025 10:20:33">2025-07-21</span>
   </span>
 
     
@@ -3456,9 +3484,9 @@ This system can analyze text and files such as threat reports to accurately iden
     
     <nav>
       
-        <a href="https://github.com/damgouj" class="md-author" title="@damgouj">
+        <a href="https://github.com/jbanety" class="md-author" title="@jbanety">
           
-          <img src="https://avatars.githubusercontent.com/u/179485775?v=4&size=72" alt="damgouj">
+          <img src="https://avatars.githubusercontent.com/u/1055330?v=4&size=72" alt="jbanety">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
@@ -3466,21 +3494,21 @@ This system can analyze text and files such as threat reports to accurately iden
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
         </a>
       
+        <a href="https://github.com/damgouj" class="md-author" title="@damgouj">
+          
+          <img src="https://avatars.githubusercontent.com/u/179485775?v=4&size=72" alt="damgouj">
+        </a>
+      
         <a href="https://github.com/MarineLeM" class="md-author" title="@MarineLeM">
           
           <img src="https://avatars.githubusercontent.com/u/17729566?v=4&size=72" alt="MarineLeM">
-        </a>
-      
-        <a href="https://github.com/impolitepanda" class="md-author" title="@impolitepanda">
-          
-          <img src="https://avatars.githubusercontent.com/u/30196345?v=4&size=72" alt="impolitepanda">
         </a>
       
       
       
         
           <a href="https://github.com/OpenBAS-Platform/docs/blob/main/docs/usage/scenario.md" class="md-author md-author--more">
-            +3
+            +4
           </a>
         
       
