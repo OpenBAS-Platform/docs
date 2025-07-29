@@ -95,7 +95,7 @@ Here are the configuration keys, for both containers (environment variables) and
 | engine.username         | ENGINE_USERNAME        |                       | This parameter is optional. Login for the database                                             |
 | engine.password         | ENGINE_PASSWORD        |                       | This parameter is optional. Password for the dat                                               |
 
-If you change your engine selector, you need to burn your table `indexing_status` in postgres in order to reindex everything.
+If you switch your engine selector, you’ll need to delete the `indexing_status` table in PostgreSQL to trigger a full reindex.
 
 #### RabbitMQ
 
