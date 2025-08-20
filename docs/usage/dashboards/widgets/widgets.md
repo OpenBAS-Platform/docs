@@ -21,6 +21,9 @@ filters to refine the data and focus the analysis on specific subsets.
 
 ![Widget perspective](assets/widget-dimensions.png)
 
+First, you have to choose the entity that will provide the data for the widget.
+![Widget perspective](assets/widget-dimensions-entity.png)
+
 You can now, in some cases, choose specific values or dynamic parameters to filter. If you choose a dynamic parameter, the widget will be calculated according to the context of the screen.
 ![Widget perspective](assets/widget-dimensions-2.png)
 
@@ -31,6 +34,7 @@ Parameters allow further customization of your widget. Based on the selected vis
 - Set the widget title
 - Choose which elements to display from the filtered dataset
 - Select the data reference date
+- Select a time range for the datas
 - Configure additional settings specific to each visualization type
 
 Two mode are available:
@@ -40,3 +44,8 @@ Two mode are available:
 
 - Temporal: projects your data based on a temporal property
   ![Widget temporal parameters](assets/widget-parameters-temporal.png)
+
+!!! note
+
+    The default value **Dashboard time range** for the time range parameter syncs the time range of the widget with the 
+    one of the dashboard.
