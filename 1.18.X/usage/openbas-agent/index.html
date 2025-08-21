@@ -3976,14 +3976,14 @@ for execution on the host Asset.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The following documented antivirus exclusions (AV exclusions) are mandatory for OpenBAS to work properly.</p>
+<p>The following documented antivirus exclusions are mandatory for OpenBAS to work properly. Please note that the AV exclusions are always only on the <code>runtimes</code> subfolder, which is important to ensure <code>payloads</code> (which land in another directory) will be detected / blocked if this is relevant.</p>
 </div>
 <h3 id="windows">Windows</h3>
 <ul>
-<li>Requirement :</li>
-<li>Ensure access to the OpenBAS instance being used,</li>
-<li>Ensure that the system environment variable "Path" contains the values "%SYSTEMROOT%\System32\" and "%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\",</li>
-<li>For "Advanced installation as User (service)", you need to enable the "Service Logon" policy for the user you want to run the service as, follow <a href="https://learn.microsoft.com/en-us/system-center/scsm/enable-service-log-on-sm?view=sc-sm-2025">this tutorial</a> to do it</li>
+<li>Requirements:</li>
+<li>Ensure access to the OpenBAS instance being used;</li>
+<li>Ensure that the system environment variable "Path" contains the values "%SYSTEMROOT%\System32\" and "%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\";</li>
+<li>For "Advanced installation as User (service)", you need to enable the "Service Logon" policy for the user you want to run the service as, follow <a href="https://learn.microsoft.com/en-us/system-center/scsm/enable-service-log-on-sm?view=sc-sm-2025">this tutorial</a> to do it;</li>
 <li>Compatibility → All major Windows versions</li>
 </ul>
 <p><em>[UserSanitized] in the table below means username without special character like "\", "/",...</em></p>
@@ -4039,7 +4039,7 @@ for execution on the host Asset.</p>
 </div>
 <h3 id="linux">Linux</h3>
 <ul>
-<li>Requirement → systemd, access to the openbas instance used</li>
+<li>Requirement → systemd, access to the OpenBAS instance used</li>
 <li>Compatibility → All systemd based linux distros</li>
 </ul>
 <table>
@@ -4094,7 +4094,7 @@ for execution on the host Asset.</p>
 </div>
 <h3 id="macos">MacOS</h3>
 <ul>
-<li>Requirement → launchd, access to the openbas instance used</li>
+<li>Requirement → launchd, access to the OpenBAS instance used</li>
 <li>Compatibility → All launchd based MacOS distros (10.4 Tiger or higher)</li>
 </ul>
 <table>
@@ -4224,7 +4224,7 @@ for execution on the host Asset.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 21, 2025 04:41:42 UTC"><span class="timeago" datetime="2025-08-21T04:41:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 21, 2025 04:41:42 UTC">2025-08-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 21, 2025 04:49:42 UTC"><span class="timeago" datetime="2025-08-21T04:49:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 21, 2025 04:49:42 UTC">2025-08-21</span>
   </span>
 
     
