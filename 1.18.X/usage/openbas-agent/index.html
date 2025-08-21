@@ -2679,6 +2679,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MacOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3737,6 +3776,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MacOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3896,7 +3974,70 @@ for execution on the host Asset.</p>
 - Example 2: with the advanced installation as system (installation before release 1.14), you have installed an agent with system user and privileges. It could be interesting to install an agent from the standard installation to compare the behavior like folders accesses, environment variables, privileges,...<br/><br/>
 <strong>For more details, see the explanations below for each OS and each installation.</strong> </p>
 </div>
-<p>Linux</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following documented antivirus exclusions (AV exclusions) are mandatory for OpenBAS to work properly.</p>
+</div>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>Requirement :</li>
+<li>Ensure access to the OpenBAS instance being used,</li>
+<li>Ensure that the system environment variable "Path" contains the values "%SYSTEMROOT%\System32\" and "%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\",</li>
+<li>For "Advanced installation as User (service)", you need to enable the "Service Logon" policy for the user you want to run the service as, follow <a href="https://learn.microsoft.com/en-us/system-center/scsm/enable-service-log-on-sm?view=sc-sm-2025">this tutorial</a> to do it</li>
+<li>Compatibility → All major Windows versions</li>
+</ul>
+<p><em>[UserSanitized] in the table below means username without special character like "\", "/",...</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Installation mode</th>
+<th style="text-align: left;">Installation</th>
+<th style="text-align: left;">Installation type</th>
+<th style="text-align: left;">Execution agent and payload</th>
+<th style="text-align: left;">Verification/Start/Stop agent</th>
+<th style="text-align: left;">Folder path</th>
+<th style="text-align: left;">AV exclusions</th>
+<th style="text-align: left;">installation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Standard installation (session)</strong></td>
+<td style="text-align: left;">Asset with GUI and terminal with standard privileges or admin privileges for the logged-in user</td>
+<td style="text-align: left;">User session (standard privileges): start up app <code>WriteRegStr</code><br/>OR<br/>User session (admin privileges): start up task <code>schtasks</code></td>
+<td style="text-align: left;">Background, only when user is logged in, with the user privilege from the powershell elevation and environment</td>
+<td style="text-align: left;"><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" }</code><br/><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" } \| Stop-Process -Force</code><br/><code>Start-Process "[FOLDER_PATH]\openbas-agent.exe"</code></td>
+<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Session-[UserSanitized]</code><br/>OR<br/><code>C:\Filigran\OBASAgent-Session-Administrator-[UserSanitized]</code></td>
+<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Session-[UserSanitized]\runtimes</code><br/>OR<br/><code>C:\Filigran\OBASAgent-Session-Administrator-[UserSanitized]\runtimes</code></td>
+<td style="text-align: left;">Stop the agent in background and "uninstall.exe" from the path folder</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Advanced installation as User (service)</strong></td>
+<td style="text-align: left;">Enable the "Service Logon" policy (see above)<br/>Terminal with admin privileges, replace params [USER] and [PASSWORD] in the<br/>bash snippet and in the following commands by the username with domain and password wanted</td>
+<td style="text-align: left;">Service: <code>sc</code> (with user and password in service conf)</td>
+<td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
+<td style="text-align: left;"><code>Get-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Start-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Stop-Service -Name "OBASAgent-Service-[UserSanitized]"</code></td>
+<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Service-[UserSanitized]</code></td>
+<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Service-[UserSanitized]\runtimes</code></td>
+<td style="text-align: left;">"uninstall.exe" from the path folder<br/>Disable the "Service Logon" policy for the user (see above)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Advanced installation as System (service)</strong></td>
+<td style="text-align: left;">Terminal with admin privileges for the authority system user</td>
+<td style="text-align: left;">Service: <code>sc</code></td>
+<td style="text-align: left;">Background, as soon as the machine powers on, with the root privilege and environment</td>
+<td style="text-align: left;"><code>Get-Service -Name "OBASAgentService"</code><br/><code>Start-Service -Name "OBASAgentService"</code><br/><code>Stop-Service -Name "OBASAgentService"</code></td>
+<td style="text-align: left;"><code>C:\Program Files (x86)\Filigran\OBAS Agent</code></td>
+<td style="text-align: left;"><code>C:\Program Files (x86)\Filigran\OBAS Agent\runtimes</code></td>
+<td style="text-align: left;">"uninstall.exe" from the path folder</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the installation fails, try using PowerShell 7 or higher.</p>
+</div>
+<h3 id="linux">Linux</h3>
 <ul>
 <li>Requirement → systemd, access to the openbas instance used</li>
 <li>Compatibility → All systemd based linux distros</li>
@@ -3909,7 +4050,8 @@ for execution on the host Asset.</p>
 <th style="text-align: left;">Installation type</th>
 <th style="text-align: left;">Execution agent and payload</th>
 <th style="text-align: left;">Verification/Start/Stop agent</th>
-<th style="text-align: left;">Folder (and Antivirus exclusion) path</th>
+<th style="text-align: left;">Folder path</th>
+<th style="text-align: left;">AV exclusions</th>
 <th style="text-align: left;">Uninstallation</th>
 </tr>
 </thead>
@@ -3920,7 +4062,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">User service: <code>systemctl --user</code></td>
 <td style="text-align: left;">Background, only when user is logged in, with the user privilege and environment</td>
 <td style="text-align: left;"><code>systemctl --user enable openbas-agent-session</code><br/><code>systemctl --user start openbas-agent-session</code><br/><code>systemctl --user stop openbas-agent-session</code></td>
-<td style="text-align: left;">$HOME/.local/openbas-agent-session</td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-session</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-session/runtimes</code></td>
 <td style="text-align: left;"><code>systemctl --user stop openbas-agent-session &amp; systemctl --user disable openbas-agent-session &amp; systemctl --user daemon-reload &amp; systemctl --user reset-failed &amp; rm -rf $HOME/.local/openbas-agent-session</code></td>
 </tr>
 <tr>
@@ -3929,7 +4072,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>systemctl</code> (with user and group in service conf)</td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
 <td style="text-align: left;"><code>systemctl enable [USER]-openbas-agent</code><br/><code>systemctl start [USER]-openbas-agent</code><br/><code>systemctl stop [USER]-openbas-agent</code></td>
-<td style="text-align: left;">/opt/openbas-agent-service-[USER]</td>
+<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]/runtimes</code></td>
 <td style="text-align: left;"><code>sudo systemctl stop [USER]-openbas-agent &amp; sudo systemctl disable [USER]-openbas-agent &amp; sudo systemctl daemon-reload &amp; sudo systemctl reset-failed &amp; sudo rm -rf /opt/openbas-agent-service-[USER]</code></td>
 </tr>
 <tr>
@@ -3938,7 +4082,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>systemctl</code></td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the root privilege and environment</td>
 <td style="text-align: left;"><code>systemctl enable openbas-agent</code><br/><code>systemctl start openbas-agent</code><br/><code>systemctl stop openbas-agent</code></td>
-<td style="text-align: left;">/opt/openbas-agent</td>
+<td style="text-align: left;"><code>/opt/openbas-agent</code></td>
+<td style="text-align: left;"><code>/opt/openbas-agent/runtimes</code></td>
 <td style="text-align: left;"><code>sudo systemctl stop openbas-agent &amp; sudo systemctl disable openbas-agent &amp; sudo systemctl daemon-reload &amp; sudo systemctl reset-failed &amp; sudo rm -rf /opt/openbas-agent</code></td>
 </tr>
 </tbody>
@@ -3947,7 +4092,7 @@ for execution on the host Asset.</p>
 <p class="admonition-title">Note</p>
 <p>If you want to allow your agent to launch commands payloads for a user without filling the sudo password, follow <a href="https://gcore.com/learning/how-to-disable-password-for-sudo-command/">this tutorial</a></p>
 </div>
-<p>MacOS</p>
+<h3 id="macos">MacOS</h3>
 <ul>
 <li>Requirement → launchd, access to the openbas instance used</li>
 <li>Compatibility → All launchd based MacOS distros (10.4 Tiger or higher)</li>
@@ -3960,7 +4105,8 @@ for execution on the host Asset.</p>
 <th style="text-align: left;">Installation type</th>
 <th style="text-align: left;">Execution agent and payload</th>
 <th style="text-align: left;">Verification/Start/Stop agent</th>
-<th style="text-align: left;">Folder (and Antivirus exclusion) path</th>
+<th style="text-align: left;">Folder path</th>
+<th style="text-align: left;">AV exclusions</th>
 <th style="text-align: left;">Uninstallation</th>
 </tr>
 </thead>
@@ -3971,7 +4117,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">User service: <code>launchctl user</code></td>
 <td style="text-align: left;">Background, only when user is logged in, with the user privilege and environment</td>
 <td style="text-align: left;"><code>launchctl enable user/$(id -u)/~/Library/LaunchAgents/openbas-agent-session.plist</code><br/><code>launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/openbas-agent-session.plist</code><br/><code>launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/openbas-agent-session.plist</code></td>
-<td style="text-align: left;">$HOME/.local/openbas-agent-session</td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-session</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-session/runtimes</code></td>
 <td style="text-align: left;"><code>launchctl remove openbas-agent-session &amp; rm -rf $HOME/.local/openbas-agent-session</code></td>
 </tr>
 <tr>
@@ -3980,7 +4127,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>launchctl system</code> (with user and group in service plist)</td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
 <td style="text-align: left;"><code>launchctl enable system/[USER]-openbas-agent</code><br/><code>launchctl bootstrap system/ ~/Library/LaunchDaemons/[USER]-openbas-agent.plist</code><br/><code>launchctl bootout system/ ~/Library/LaunchDaemons/[USER]-openbas-agent.plist</code></td>
-<td style="text-align: left;">/opt/openbas-agent-service-[USER]</td>
+<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]/runtimes</code></td>
 <td style="text-align: left;"><code>sudo launchctl remove [USER]-openbas-agent &amp; sudo rm -rf /opt/openbas-agent-service-[USER]</code></td>
 </tr>
 <tr>
@@ -3989,7 +4137,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>launchctl system</code></td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the root privilege and environment</td>
 <td style="text-align: left;"><code>launchctl enable system/openbas.agent</code><br/><code>launchctl bootstrap system/ ~/Library/LaunchDaemons/openbas-agent.plist</code><br/><code>launchctl bootout system/ ~/Library/LaunchDaemons/openbas-agent.plist</code></td>
-<td style="text-align: left;">/opt/openbas-agent</td>
+<td style="text-align: left;"><code>/opt/openbas-agent</code></td>
+<td style="text-align: left;"><code>/opt/openbas-agent/runtimes</code></td>
 <td style="text-align: left;"><code>sudo launchctl remove openbas-agent &amp; sudo rm -rf /opt/openbas-agent</code></td>
 </tr>
 </tbody>
@@ -3997,63 +4146,6 @@ for execution on the host Asset.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you want to allow your agent to launch commands payloads for a user without filling the sudo password, follow <a href="https://gcore.com/learning/how-to-disable-password-for-sudo-command/">this tutorial</a></p>
-</div>
-<p>Windows</p>
-<ul>
-<li>Requirement : <ul>
-<li>Ensure access to the OpenBAS instance being used, </li>
-<li>Ensure that the system environment variable "Path" contains the values "%SYSTEMROOT%\System32\" and "%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\", </li>
-<li>For "Advanced installation as User (service)", you need to enable the "Service Logon" policy for the user you want to run the service as, follow <a href="https://learn.microsoft.com/en-us/system-center/scsm/enable-service-log-on-sm?view=sc-sm-2025">this tutorial</a> to do it</li>
-</ul>
-</li>
-<li>Compatibility → All major Windows versions</li>
-</ul>
-<p><em>[UserSanitized] in the table below means username without special character like "\", "/",...</em> </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Installation mode</th>
-<th style="text-align: left;">Installation</th>
-<th style="text-align: left;">Installation type</th>
-<th style="text-align: left;">Execution agent and payload</th>
-<th style="text-align: left;">Verification/Start/Stop agent</th>
-<th style="text-align: left;">Folder (and Antivirus exclusion) path</th>
-<th style="text-align: left;">Uninstallation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Standard installation (session)</strong></td>
-<td style="text-align: left;">Asset with GUI and terminal with standard privileges or admin privileges for the logged-in user</td>
-<td style="text-align: left;">User session (standard privileges): start up app <code>WriteRegStr</code><br/>OR<br/>User session (admin privileges): start up task <code>schtasks</code></td>
-<td style="text-align: left;">Background, only when user is logged in, with the user privilege from the powershell elevation and environment</td>
-<td style="text-align: left;"><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" }</code><br/><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" } \| Stop-Process -Force</code><br/><code>Start-Process "[FOLDER_PATH]\openbas-agent.exe"</code></td>
-<td style="text-align: left;">C:\Filigran\OBASAgent-Session-[UserSanitized]<br/>OR<br/>C:\Filigran\OBASAgent-Session-Administrator-[UserSanitized]</td>
-<td style="text-align: left;">Stop the agent in background and "uninstall.exe" from the path folder</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Advanced installation as User (service)</strong></td>
-<td style="text-align: left;">Enable the "Service Logon" policy (see above)<br/>Terminal with admin privileges, replace params [USER] and [PASSWORD] in the<br/>bash snippet and in the following commands by the username with domain and password wanted</td>
-<td style="text-align: left;">Service: <code>sc</code> (with user and password in service conf)</td>
-<td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
-<td style="text-align: left;"><code>Get-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Start-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Stop-Service -Name "OBASAgent-Service-[UserSanitized]"</code></td>
-<td style="text-align: left;">C:\Filigran\OBASAgent-Service-[UserSanitized]</td>
-<td style="text-align: left;">"uninstall.exe" from the path folder<br/>Disable the "Service Logon" policy for the user (see above)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Advanced installation as System (service)</strong></td>
-<td style="text-align: left;">Terminal with admin privileges for the authority system user</td>
-<td style="text-align: left;">Service: <code>sc</code></td>
-<td style="text-align: left;">Background, as soon as the machine powers on, with the root privilege and environment</td>
-<td style="text-align: left;"><code>Get-Service -Name "OBASAgentService"</code><br/><code>Start-Service -Name "OBASAgentService"</code><br/><code>Stop-Service -Name "OBASAgentService"</code></td>
-<td style="text-align: left;">C:\Program Files (x86)\Filigran\OBAS Agent</td>
-<td style="text-align: left;">"uninstall.exe" from the path folder</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the installation fails, try using PowerShell 7 or higher.</p>
 </div>
 <p>The following flow diagram represents the Agent installation flow :</p>
 <p><a class="glightbox" href="../../administration/assets/agent_installation_flow_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="img.png" src="../../administration/assets/agent_installation_flow_diagram.png" /></a></p>
@@ -4132,7 +4224,7 @@ for execution on the host Asset.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 18, 2025 08:37:42 UTC"><span class="timeago" datetime="2025-03-18T08:37:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 18, 2025 08:37:42 UTC">2025-03-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 21, 2025 04:41:42 UTC"><span class="timeago" datetime="2025-08-21T04:41:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 21, 2025 04:41:42 UTC">2025-08-21</span>
   </span>
 
     
@@ -4159,6 +4251,11 @@ for execution on the host Asset.</p>
 
     
     <nav>
+      
+        <a href="https://github.com/SamuelHassine" class="md-author" title="@SamuelHassine">
+          
+          <img src="https://avatars.githubusercontent.com/u/1334279?v=4&size=72" alt="SamuelHassine">
+        </a>
       
         <a href="https://github.com/damgouj" class="md-author" title="@damgouj">
           
