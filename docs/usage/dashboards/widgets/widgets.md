@@ -45,7 +45,9 @@ Two mode are available:
 - Temporal: projects your data based on a temporal property
   ![Widget temporal parameters](assets/widget-parameters-temporal.png)
 
-!!! note
+The values for the time range are: dashboard time range, all time, custom range, last 24 hours, last 7 days, last month, last 3 months, last 6 
+months and last year.
 
-    The default value **Dashboard time range** for the time range parameter syncs the time range of the widget with the 
-    one of the dashboard.
+!!! note
+ 
+    The default value **Dashboard time range** for the time range parameter defines the time range of the dashboard as the one for the widget.
