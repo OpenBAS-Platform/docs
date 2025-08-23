@@ -3997,7 +3997,7 @@ for execution on the host Asset.</p>
 <th style="text-align: left;">Verification/Start/Stop agent</th>
 <th style="text-align: left;">Folder path</th>
 <th style="text-align: left;">AV exclusions</th>
-<th style="text-align: left;">installation</th>
+<th style="text-align: left;">Uninstallation</th>
 </tr>
 </thead>
 <tbody>
@@ -4007,8 +4007,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">User session (standard privileges): start up app <code>WriteRegStr</code><br/>OR<br/>User session (admin privileges): start up task <code>schtasks</code></td>
 <td style="text-align: left;">Background, only when user is logged in, with the user privilege from the powershell elevation and environment</td>
 <td style="text-align: left;"><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" }</code><br/><code>Get-Process openbas-agent \| Where-Object { $_.Path -eq "[FOLDER_PATH]\openbas-agent.exe" } \| Stop-Process -Force</code><br/><code>Start-Process "[FOLDER_PATH]\openbas-agent.exe"</code></td>
-<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Session-[UserSanitized]</code><br/>OR<br/><code>C:\Filigran\OBASAgent-Session-Administrator-[UserSanitized]</code></td>
-<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Session-[UserSanitized]\runtimes</code><br/>OR<br/><code>C:\Filigran\OBASAgent-Session-Administrator-[UserSanitized]\runtimes</code></td>
+<td style="text-align: left;"><code>$HOME\.openbas\OBASAgent-Session-[UserSanitized]</code><br/>OR<br/><code>$HOME\.openbas\OBASAgent-Session-Administrator-[UserSanitized]</code></td>
+<td style="text-align: left;"><code>$HOME\.openbas\OBASAgent-Session-[UserSanitized]\runtimes</code><br/>OR<br/><code>$HOME\.openbas\OBASAgent-Session-Administrator-[UserSanitized]\runtimes</code></td>
 <td style="text-align: left;">Stop the agent in background and "uninstall.exe" from the path folder</td>
 </tr>
 <tr>
@@ -4017,8 +4017,8 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>sc</code> (with user and password in service conf)</td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
 <td style="text-align: left;"><code>Get-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Start-Service -Name "OBASAgent-Service-[UserSanitized]"</code><br/><code>Stop-Service -Name "OBASAgent-Service-[UserSanitized]"</code></td>
-<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Service-[UserSanitized]</code></td>
-<td style="text-align: left;"><code>C:\Filigran\OBASAgent-Service-[UserSanitized]\runtimes</code></td>
+<td style="text-align: left;"><code>$HOME\.openbas\OBASAgent-Service-[UserSanitized]</code></td>
+<td style="text-align: left;"><code>$HOME\.openbas\OBASAgent-Service-[UserSanitized]\runtimes</code></td>
 <td style="text-align: left;">"uninstall.exe" from the path folder<br/>Disable the "Service Logon" policy for the user (see above)</td>
 </tr>
 <tr>
@@ -4072,9 +4072,9 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>systemctl</code> (with user and group in service conf)</td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
 <td style="text-align: left;"><code>systemctl enable [USER]-openbas-agent</code><br/><code>systemctl start [USER]-openbas-agent</code><br/><code>systemctl stop [USER]-openbas-agent</code></td>
-<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]</code></td>
-<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]/runtimes</code></td>
-<td style="text-align: left;"><code>sudo systemctl stop [USER]-openbas-agent &amp; sudo systemctl disable [USER]-openbas-agent &amp; sudo systemctl daemon-reload &amp; sudo systemctl reset-failed &amp; sudo rm -rf /opt/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-service-[USER]/runtimes</code></td>
+<td style="text-align: left;"><code>sudo systemctl stop [USER]-openbas-agent &amp; sudo systemctl disable [USER]-openbas-agent &amp; sudo systemctl daemon-reload &amp; sudo systemctl reset-failed &amp; sudo rm -rf $HOME/.local/openbas-agent-service-[USER]</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Advanced installation as System (service)</strong></td>
@@ -4127,9 +4127,9 @@ for execution on the host Asset.</p>
 <td style="text-align: left;">Service: <code>launchctl system</code> (with user and group in service plist)</td>
 <td style="text-align: left;">Background, as soon as the machine powers on, with the user privilege and environment</td>
 <td style="text-align: left;"><code>launchctl enable system/[USER]-openbas-agent</code><br/><code>launchctl bootstrap system/ ~/Library/LaunchDaemons/[USER]-openbas-agent.plist</code><br/><code>launchctl bootout system/ ~/Library/LaunchDaemons/[USER]-openbas-agent.plist</code></td>
-<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]</code></td>
-<td style="text-align: left;"><code>/opt/openbas-agent-service-[USER]/runtimes</code></td>
-<td style="text-align: left;"><code>sudo launchctl remove [USER]-openbas-agent &amp; sudo rm -rf /opt/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-service-[USER]</code></td>
+<td style="text-align: left;"><code>$HOME/.local/openbas-agent-service-[USER]/runtimes</code></td>
+<td style="text-align: left;"><code>sudo launchctl remove [USER]-openbas-agent &amp; sudo rm -rf $HOME/.local/openbas-agent-service-[USER]</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Advanced installation as System (service)</strong></td>
@@ -4224,7 +4224,7 @@ for execution on the host Asset.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 21, 2025 04:49:42 UTC"><span class="timeago" datetime="2025-08-21T04:49:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 21, 2025 04:49:42 UTC">2025-08-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 23, 2025 05:27:23 UTC"><span class="timeago" datetime="2025-08-23T05:27:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 23, 2025 05:27:23 UTC">2025-08-23</span>
   </span>
 
     
