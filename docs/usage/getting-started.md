@@ -19,6 +19,51 @@ Here are some examples of use cases:
 - Organize Capture The Flag with multiple challenges
 - Conduct atomic testing
 
+## Onboarding
+
+The onboarding feature helps new users discover OpenBAS step by step, by guiding
+them through essential configurations and workflows.
+
+### Welcome popup
+
+When you log in to OpenBAS for the first time, a **welcome popup** is displayed.  
+This popup introduces you to the platform and lists all available tutorial videos.  
+It is designed to give you a quick overview of the main concepts and help you
+take your first steps with confidence.
+
+![welcome-popup](assets/onboarding/welcome-popup.png)
+
+### Contextual videos
+
+On specific pages, you can trigger a contextual video tutorial that explains the
+concepts and actions to perform:
+
+- Discover OpenBAS
+- Set up an endpoint
+- Set up a collector
+- Set up a player
+- Set up a team
+- Launch a scenario and understand your results
+
+![contextual-video](assets/onboarding/contextual-video.png)
+
+You can enable or disable these tutorials in your **platform settings** or in
+your **user profile settings**.
+
+### Getting started checklist
+
+The onboarding wizard provides a **progress bar** showing the key actions you
+need to complete before running your first scenario.
+
+- Each task links directly to the relevant page and triggers its tutorial video.
+- Completed actions are automatically marked as **done** in the wizard.
+- Actions can also be skipped if you prefer to configure them later.
+
+This checklist ensures you have everything set up before launching your first
+Breach and Attack Simulation.
+
+![checklist](assets/onboarding/checklist.png)
+
 ## Welcome dashboard
 
 The welcome page provides every OpenBAS platform visitor with a snapshot of the platform activity as well as an overview
